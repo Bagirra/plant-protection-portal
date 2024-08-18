@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Метео данные Taraclia</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Метео данные Taraclia</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="meteo.html">Метео данные</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>График температуры и осадков</h2>
+        <button id="showChartButton" class="button">Показать график</button>
+        <canvas id="meteoChart" width="400" height="200" style="display: none;"></canvas>
+        
+        <h2>Текущие данные с метеостанции</h2>
+        <table id="meteoTable">
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Макс. температура (°C)</th>
+                    <th>Мин. температура (°C)</th>
+                    <th>Сред. температура (°C)</th>
+                    <th>Скорость ветра (км/ч)</th>
+                    <th>Точка росы (°C)</th>
+                    <th>Влажность (%)</th>
+                    <th>Осадки (мм)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="9">Загрузка данных...</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Выбор даты для отображения данных</h2>
+        <label for="date">Выберите дату:</label>
+        <input type="date" id="date">
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Plant Protection Portal</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
