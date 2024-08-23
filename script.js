@@ -105,3 +105,41 @@ window.onload = function() {
     document.getElementById('startDate').addEventListener('change', updateTableByDateRange);
     document.getElementById('endDate').addEventListener('change', updateTableByDateRange);
 };
+
+document.getElementById('upload-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    let imageFile = document.getElementById('imageUpload').files[0];
+    if (!imageFile) {
+        document.getElementById('result').innerHTML = 'Пожалуйста, выберите изображение для загрузки.';
+        return;
+    }
+
+    let formData = new FormData();
+    formData.append('image', imageFile);
+
+    // Здесь вы можете использовать любой из предложенных ранее API
+    const apiKey = 'YOUR_API_KEY'; // Вставьте сюда ваш API ключ
+    const apiUrl = 'https://api.plant.id/v2/identify'; // Замените на URL вашего API
+
+    try {
+        let response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${apiKey}`
+            },
+            body: formData
+        });
+
+        let result = await response.json();
+        if (result.suggestions && result.suggestions.length > 0) {
+            let pestName = result.suggestions[0].plant_name;
+            document.getElementById('result').innerHTML = 'Обнаружен: ' + pestName;
+        } else {
+            document.getElementById('result').innerHTML = 'Не удалось определить вредителя или болезнь.';
+        }
+    } catch (error) {
+        document.getElementById('result').innerHTML = 'Произошла ошибка при определении.';
+        console.error('Error:', error);
+    }
+});
