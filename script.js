@@ -6,85 +6,78 @@ function roundToInteger(value) {
     return Math.round(value);
 }
 
-// Функция для получения метео данных за последний месяц
-async function fetchMeteoDataForMonth() {
-    const today = new Date();
-    const startDate = new Date();
-    startDate.setDate(today.getDate() - 30); // Начальная дата - 30 дней назад
-
-    const formattedStartDate = startDate.toISOString().split('T')[0];
-    const formattedEndDate = today.toISOString().split('T')[0];
-
-    const response = await fetch(`https://api.weather.com/v2/pws/history/daily?stationId=${stationId}&format=json&units=m&date=${formattedStartDate}&endDate=${formattedEndDate}&apiKey=${apiKey}`);
+// Функция для получения данных о текущей погоде
+async function fetchCurrentWeather() {
+    const response = await fetch(`https://api.weather.com/v2/pws/observations/current?stationId=${stationId}&format=json&units=m&apiKey=${apiKey}`);
     const data = await response.json();
-    return data.observations;
+    console.log('Current Weather Data:', data); // Логируем данные для проверки
+    return data.observations[0];
 }
 
-// Функция для обновления таблицы
-function updateTable(data) {
-    const tableBody = document.querySelector('#meteoTable tbody');
-    tableBody.innerHTML = '';  // Очищаем таблицу
+// Функция для получения прогноза погоды
+async function fetchWeatherForecast() {
+    const response = await fetch(`https://api.weather.com/v3/wx/forecast/daily/5day?geocode=45.886972,28.645906&format=json&units=m&language=en-US&apiKey=${apiKey}`);
+    const data = await response.json();
+    console.log('Weather Forecast Data:', data); // Логируем данные для проверки
+    return data;
+}
 
-    data.forEach(row => {
-        const newRow = `
-            <tr>
-                <td>${row.obsTimeLocal.split(' ')[0]}</td>
-                <td>${roundToInteger(row.metric.tempHigh)} °C</td>
-                <td>${roundToInteger(row.metric.tempLow)} °C</td>
-                <td>${roundToInteger(row.metric.tempAvg)} °C</td>
-                <td>${roundToInteger(row.metric.windspeedAvg)} км/ч</td>
-                <td>${roundToInteger(row.metric.dewptHigh)} °C</td>
-                <td>${roundToInteger(row.metric.humidityAvg)} %
-                <td>${roundToInteger(row.metric.precipTotal)} мм</td>
-            </tr>
+// Функция для отображения текущих данных о погоде
+function displayCurrentWeather(data) {
+    console.log('Displaying Current Weather:', data); // Логируем данные для проверки
+
+    const weatherIcon = document.getElementById('weatherIcon');
+    const temperature = document.getElementById('temperature');
+    const humidity = document.getElementById('humidity');
+    const windSpeed = document.getElementById('windSpeed');
+    const dewPoint = document.getElementById('dewPoint');
+    const precipitation = document.getElementById('precipitation');
+
+    // Проверяем, что данные существуют перед их отображением
+    const temp = data.temp ? roundToInteger(data.temp) : '—';
+    const humidityValue = data.humidity ? data.humidity : '—';
+    const windSpeedValue = data.windspeed ? roundToInteger(data.windspeed) : '—';
+    const dewPointValue = data.dewpoint ? roundToInteger(data.dewpoint) : '—';
+    const precipitationValue = data.precipitation ? roundToInteger(data.precipitation) : '—';
+
+    // Обновляем элементы на странице
+    weatherIcon.src = data.icon ? `https://www.weather.com/icons/${data.icon}.png` : ''; // Замените на URL иконок, соответствующих вашей погодной службе
+    temperature.textContent = `${temp} °C`;
+    humidity.textContent = `Влажность: ${humidityValue} %`;
+    windSpeed.textContent = `Скорость ветра: ${windSpeedValue} км/ч`;
+    dewPoint.textContent = `Точка росы: ${dewPointValue} °C`;
+    precipitation.textContent = `Осадки: ${precipitationValue} мм`;
+}
+
+// Функция для отображения прогноза погоды
+function displayWeatherForecast(forecast) {
+    console.log('Displaying Weather Forecast:', forecast); // Логируем данные для проверки
+
+    const forecastContainer = document.getElementById('forecastContainer');
+    forecastContainer.innerHTML = '';  // Очищаем контейнер
+
+    forecast.daily.forecast.forEach(day => {
+        const forecastItem = `
+            <div class="forecast-item">
+                <h3>${new Date(day.fcst_valid_local).toLocaleDateString()}</h3>
+                <p>Макс. температура: ${roundToInteger(day.temp_max)} °C</p>
+                <p>Мин. температура: ${roundToInteger(day.temp_min)} °C</p>
+                <p>Условие: ${day.narrative}</p>
+            </div>
         `;
-        tableBody.innerHTML += newRow;
+        forecastContainer.innerHTML += forecastItem;
     });
 }
 
 // Инициализация данных при загрузке страницы
-window.onload = function() {
-    loadWeeklyData();
-
-    // Обработчики событий для выбора дат
-    document.getElementById('startDate').addEventListener('change', updateTableByDateRange);
-    document.getElementById('endDate').addEventListener('change', updateTableByDateRange);
-};
-
-document.getElementById('upload-form').addEventListener('submit', async function(event) {
-    event.preventDefault();
-
-    let imageFile = document.getElementById('imageUpload').files[0];
-    if (!imageFile) {
-        document.getElementById('result').innerHTML = 'Пожалуйста, выберите изображение для загрузки.';
-        return;
-    }
-
-    let formData = new FormData();
-    formData.append('image', imageFile);
-
-    // Здесь вы можете использовать любой из предложенных ранее API
-    const apiKey = 'YOUR_API_KEY'; // Вставьте сюда ваш API ключ
-    const apiUrl = 'https://api.plant.id/v2/identify'; // Замените на URL вашего API
-
+window.onload = async function() {
     try {
-        let response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${apiKey}`
-            },
-            body: formData
-        });
+        const currentWeather = await fetchCurrentWeather();
+        displayCurrentWeather(currentWeather);
 
-        let result = await response.json();
-        if (result.suggestions && result.suggestions.length > 0) {
-            let pestName = result.suggestions[0].plant_name;
-            document.getElementById('result').innerHTML = 'Обнаружен: ' + pestName;
-        } else {
-            document.getElementById('result').innerHTML = 'Не удалось определить вредителя или болезнь.';
-        }
+        const weatherForecast = await fetchWeatherForecast();
+        displayWeatherForecast(weatherForecast);
     } catch (error) {
-        document.getElementById('result').innerHTML = 'Произошла ошибка при определении.';
-        console.error('Error:', error);
+        console.error('Error fetching weather data:', error);
     }
-});
+};

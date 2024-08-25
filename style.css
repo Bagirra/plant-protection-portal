@@ -34,6 +34,7 @@ a {
 main {
     padding: 20px;
 }
+
 /* Основная часть */
 main {
     padding: 20px;
@@ -89,6 +90,7 @@ form button:hover {
     background-color: #f0f0f0;
     border-radius: 5px;
 }
+
 /* Стили для футера */
 footer {
     text-align: center;
@@ -180,5 +182,41 @@ tr:hover {
 }
 
 .forecast-item p {
+    margin: 5px 0;
+}
+
+/* Стили для текущих данных о погоде */
+#currentWeather {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.weather-icon {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.weather-icon img {
+    width: 60px;
+    height: 60px;
+}
+
+.weather-info {
+    text-align: center;
+}
+
+.weather-info h3 {
+    margin: 10px 0;
+}
+
+.weather-info p {
     margin: 5px 0;
 }

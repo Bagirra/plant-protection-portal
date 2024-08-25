@@ -32,18 +32,24 @@
                 <!-- Прогноз будет отображаться здесь -->
             </div>
         </section>
-        <section id="meteo">
-            <!-- Таблица и график для метео данных -->
+        <section id="currentWeather">
+    <h2>Текущие данные с метеостанции</h2>
+    <img id="weatherIcon" alt="Weather Icon">
+    <p id="temperature">— °C</p>
+    <p id="humidity">Влажность: — %</p>
+    <p id="windSpeed">Скорость ветра: — км/ч</p>
+    <p id="dewPoint">Точка росы: — °C</p>
+    <p id="precipitation">Осадки: — мм</p>
+</section>
+        <section>
+            <h2>Определитель Вредителей и Болезней</h2>
+            <form id="upload-form">
+                <label for="imageUpload">Загрузите изображение:</label>
+                <input type="file" id="imageUpload" name="imageUpload" accept="image/*">
+                <button type="submit">Определить</button>
+            </form>
+            <div id="result"></div>
         </section>
-    </main>
-    <main>
-        <h2>Определитель Вредителей и Болезней</h2>
-        <form id="upload-form">
-            <label for="imageUpload">Загрузите изображение:</label>
-            <input type="file" id="imageUpload" name="imageUpload" accept="image/*">
-            <button type="submit">Определить</button>
-        </form>
-        <div id="result"></div>
     </main>
     <script src="script.js"></script>
     <footer>
