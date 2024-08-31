@@ -7,53 +7,57 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>ЗАЩИТА РАСТЕНИЙ</h1>
-        <h2>МОЛДОВА ЮГ</h2>
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="pests.html">Вредители и Болезни</a></li>
-                <li><a href="export.html">Экспорт</a></li>
-                <li><a href="about.html">О Нас</a></li>
-                <li><a href="meteo.html">Метео</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h2>Портал защиты растений</h2>
-        <p>Получайте актуальные новости и информацию о вредителях и болезнях растений на территории Республики Молдова, времени и способах обработки.</p>
-        <a href="subscribe.html" class="button">Подписаться на уведомления</a>
-    </main>
-    <main>
-        <section id="forecast">
-            <h2>Прогноз погоды</h2>
-            <div id="forecastContainer">
-                <!-- Прогноз будет отображаться здесь -->
-            </div>
-        </section>
-        <section id="currentWeather">
-    <h2>Текущие данные с метеостанции</h2>
-    <img id="weatherIcon" alt="Weather Icon">
-    <p id="temperature">— °C</p>
-    <p id="humidity">Влажность: — %</p>
-    <p id="windSpeed">Скорость ветра: — км/ч</p>
-    <p id="dewPoint">Точка росы: — °C</p>
-    <p id="precipitation">Осадки: — мм</p>
-</section>
-        <section>
-            <h2>Определитель Вредителей и Болезней</h2>
-            <form id="upload-form">
-                <label for="imageUpload">Загрузите изображение:</label>
-                <input type="file" id="imageUpload" name="imageUpload" accept="image/*">
-                <button type="submit">Определить</button>
-            </form>
-            <div id="result"></div>
-        </section>
-    </main>
-    <script src="script.js"></script>
-    <footer>
-        <p>&copy; 2024 Plant Protection Portal</p>
-    </footer>
+    <div class="content-wrapper">
+        <header>
+            <h1>ЗАЩИТА РАСТЕНИЙ</h1>
+            <h2>МОЛДОВА ЮГ</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="pests.html">Вредители и Болезни</a></li>
+                    <li><a href="export.html">Экспорт</a></li>
+                    <li><a href="about.html">О Нас</a></li>
+                    <li><a href="meteo.html">Метео</a></li>
+                    <li><a href="plan.html">Защита растений</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h2>Портал защиты растений</h2>
+            <p>Получайте актуальные новости и информацию о вредителях и болезнях растений на территории Республики Молдова, времени и способах обработки.</p>
+            <a href="subscribe.html" class="button">Подписаться на уведомления</a>
+            <button type="submit">Подписаться</button>
+        </main>
+        <main>
+            <section id="forecast">
+                <h2>Прогноз погоды</h2>
+                <div id="forecastContainer">
+                    <!-- Прогноз будет отображаться здесь -->
+                </div>
+            </section>
+            <section id="currentWeather">
+        <h2>Текущие данные с метеостанции</h2>
+        <img id="weatherIcon" alt="Weather Icon">
+        <p id="temperature">— °C</p>
+        <p id="humidity">Влажность: — %</p>
+        <p id="windSpeed">Скорость ветра: — км/ч</p>
+        <p id="dewPoint">Точка росы: — °C</p>
+        <p id="precipitation">Осадки: — мм</p>
+    </section>
+            <section>
+                <h2>Определитель Вредителей и Болезней</h2>
+                <form id="upload-form">
+                    <label for="imageUpload">Загрузите изображение:</label>
+                    <input type="file" id="imageUpload" name="imageUpload" accept="image/*">
+                    <button type="submit">Определить</button>
+                </form>
+                <div id="result"></div>
+            </section>
+        </main>
+        <script src="script.js"></script>
+        <footer>
+            <p>&copy; 2024 Plant Protection Portal</p>
+        </footer>
+    </div>
 </body>
 </html>
