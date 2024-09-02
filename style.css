@@ -220,7 +220,7 @@ footer {
     .phase {
         margin: 10px 0;
     }
-
+   
     .timeline {
         height: 20px;
     }
@@ -252,7 +252,7 @@ footer {
     }
 
     .phase p {
-        font-size: 14px;
+        font-size: 8px;
     }
 
     .action-items {
@@ -279,4 +279,67 @@ footer {
     footer {
         padding: 10px 0;
     }
+}
+/* Фон для фаз винограда */
+.phases-background {
+    background-color: #e0e0e0;
+    padding: 5px 0; /* Уменьшенная высота фона */
+    margin-top: 10px;
+    position: relative;
+}
+
+/* Фазы винограда */
+.phases {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+}
+
+.phase {
+    text-align: center;
+    flex-grow: 1;
+    margin: 0 5px;
+}
+
+.phase img {
+    width: 30px; /* Уменьшенный размер изображения */
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+/* Горизонтальная линия */
+.horizontal-line {
+    position: absolute;
+    bottom: 5px; /* Поднятая линия ближе к изображениям */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #009f5d;
+}
+
+/* Вертикальные линии */
+.vertical-line {
+    position: absolute;
+    width: 2px;
+    height: 10px; /* Уменьшенная высота вертикальных линий */
+    background-color: #009f5d;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.phase:first-child .vertical-line {
+    display: none;
+}
+
+.phase:not(:first-child):before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -1px;
+    width: 2px;
+    background-color: #009f5d;
+    height: 15px;
+    top: 50%;
+    transform: translateY(-50%);
 }
