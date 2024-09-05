@@ -199,8 +199,89 @@ footer {
     padding: 10px 0;
     margin-top: 40px;
 }
+/* Стили для прогноза погоды */
+#forecast {
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#forecastContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.forecast-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    width: 180px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.forecast-item h3 {
+    font-size: 18px;
+    color: #009f5d;
+}
+
+.forecast-item p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+/* Стили для текущих данных */
+#currentWeather {
+    background-color: #f0f4f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#currentWeather img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+#currentWeather p {
+    font-size: 16px;
+    margin: 8px 0;
+    color: #333;
+}
+
+#currentWeather p#temperature {
+    font-size: 28px;
+    font-weight: bold;
+    color: #009f5d;
+}
 
 /* Стили для контента */
+/* Адаптивность для прогноза и текущих данных */
+@media (max-width: 768px) {
+    #forecastContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .forecast-item {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    #currentWeather {
+        text-align: left;
+    }
+}
+
+
 .content-wrapper {
     max-width: 1200px;
     margin: 0 auto;

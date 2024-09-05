@@ -26,24 +26,25 @@
             <h2>Портал защиты растений</h2>
             <p>Получайте актуальные новости и информацию о вредителях и болезнях растений на территории Республики Молдова, времени и способах обработки.</p>
             <a href="subscribe.html" class="button">Подписаться на уведомления</a>
-            <button type="submit">Подписаться</button>
         </main>
         <main>
+            <section id="currentWeather">
+                <h2>Текущие данные с метеостанции</h2>
+                <img id="weatherIcon" alt="Weather Icon">
+                <p id="temperature">— °C</p>
+                <p id="humidity">Влажность: — %</p>
+                <p id="windSpeed">Скорость ветра: — км/ч</p>
+                <p id="dewPoint">Точка росы: — °C</p>
+                <p id="precipitation">Осадки: — мм</p>
+            </section>
+            
             <section id="forecast">
                 <h2>Прогноз погоды</h2>
                 <div id="forecastContainer">
                     <!-- Прогноз будет отображаться здесь -->
                 </div>
             </section>
-            <section id="currentWeather">
-        <h2>Текущие данные с метеостанции</h2>
-        <img id="weatherIcon" alt="Weather Icon">
-        <p id="temperature">— °C</p>
-        <p id="humidity">Влажность: — %</p>
-        <p id="windSpeed">Скорость ветра: — км/ч</p>
-        <p id="dewPoint">Точка росы: — °C</p>
-        <p id="precipitation">Осадки: — мм</p>
-    </section>
+           
             <section>
                 <h2>Определитель Вредителей и Болезней</h2>
                 <form id="upload-form">
