@@ -228,7 +228,7 @@ h1 {
 .weather-info #temperature {
     font-size: 36px;
     font-weight: bold;
-    color: #3a9ad9;
+    color: #d9873a;
 }
 
 /* Секция прогноза */
@@ -262,7 +262,7 @@ h1 {
 .forecast-item h3 {
     margin: 10px 0;
     font-size: 16px;
-    color: #3a9ad9;
+    color: #eed1b7;
 }
 
 .forecast-item p {

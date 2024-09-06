@@ -21,6 +21,7 @@ function updateCurrentWeather(data) {
     document.getElementById('temperature').innerText = `${data.metric.temp} °C`;
     document.getElementById('humidity').innerText = `Влажность: ${data.humidity} %`;
     document.getElementById('windSpeed').innerText = `Ветер: ${data.metric.windSpeed} км/ч`;
+    document.getElementById('precipitation').innerText = `Осадки: ${data.metric.precipTotal} мм`;
 }
 
 // Функция для отображения прогноза погоды
@@ -35,6 +36,7 @@ function updateWeatherForecast(forecast) {
                 <h3>${forecast.dayOfWeek[i]}</h3>
                 <p>${forecast.calendarDayTemperatureMax[i]} °C</p>
                 <p>${forecast.calendarDayTemperatureMin[i]} °C</p>
+                <p>${forecast.qpf[i]} мм</p>
             </div>
         `;
         forecastContainer.innerHTML += dayForecast;
