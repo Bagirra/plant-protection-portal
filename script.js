@@ -17,7 +17,16 @@ async function fetchWeatherForecast() {
 
 // Функция для обновления текущих данных на экране
 function updateCurrentWeather(data) {
-    document.getElementById('weatherIcon').src = 'images/sunny.png'; 
+    let iconSrc = 'images/sunny.png'; // По умолчанию солнечно
+    if (data.icon === 'rain') {
+        iconSrc = 'images/rain.png';
+    } else if (data.icon === 'cloudy') {
+        iconSrc = 'images/cloudy.png';
+    } else if (data.icon === 'overcast') {
+        iconSrc = 'images/overcast.png';
+    }
+
+    document.getElementById('weatherIcon').src = iconSrc; 
     document.getElementById('temperature').innerText = `${data.metric.temp} °C`;
     document.getElementById('humidity').innerText = `Влажность: ${data.humidity} %`;
     document.getElementById('windSpeed').innerText = `Ветер: ${data.metric.windSpeed} км/ч`;
@@ -52,19 +61,21 @@ function updateWeatherForecast(forecast) {
         forecastContainer.innerHTML += dayForecast;
     }
 }
+
 // Инициализация данных при загрузке страницы
 window.onload = async function() {
     try {
+        // Получаем и обновляем текущие данные о погоде
         const currentWeather = await fetchCurrentWeather();
         updateCurrentWeather(currentWeather);
 
+        // Получаем и обновляем прогноз погоды
         const weatherForecast = await fetchWeatherForecast();
         updateWeatherForecast(weatherForecast);
     } catch (error) {
         console.error('Ошибка при получении данных:', error);
     }
 };
-
 
 
 function togglePlan(planId) {

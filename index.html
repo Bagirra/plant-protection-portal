@@ -33,19 +33,17 @@
         <h1>Погода сегодня</h1>
     </header>
 
-    <main>
-        <section id="currentWeather" class="weather-section">
-            <div class="weather-icon-container">
-                <img id="weatherIcon" alt="Weather Icon" src="images/sunny.png"> <!-- Заменить на реальный путь к иконке -->
-            </div>
-            <div class="weather-info">
-                <p id="temperature">— °C</p>
-                <p id="humidity">Влажность: — %</p>
-                <p id="windSpeed">Ветер: — км/ч</p>
-                <p id="precipitation">Осадки: — мм</p>
-            </div>
-        </section>
-    </main>
+    <section id="currentWeather" class="weather-section">
+        <div class="weather-icon-container">
+            <img id="weatherIcon" alt="Weather Icon" src="images/sunny.png"> <!-- Здесь будет динамически обновляться иконка -->
+        </div>
+        <div class="weather-info">
+            <p id="temperature">— °C</p>
+            <p id="humidity">Влажность: — %</p>
+            <p id="windSpeed">Ветер: — км/ч</p>
+            <p id="precipitation">Осадки: — мм</p>
+        </div>
+    </section>
 
     <header>
         <h1>Прогноз на 5 дней</h1>
@@ -69,6 +67,7 @@
                 <div id="result"></div>
             </section>
         </main>
+        <script src="path/to/weather-script.js"></script>
         <script src="script.js"></script>
         <footer>
             <p>&copy; 2024 Plant Protection Portal</p>
