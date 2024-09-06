@@ -360,6 +360,37 @@ h1 {
         padding: 10px 0;
     }
 }
+@media (max-width: 480px) {
+    table th, table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tbody tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    table tbody tr td {
+        display: block;
+        text-align: left;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    table tbody tr td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+    }
+}
 /* Фон для фаз винограда */
 .phases-background {
     background-color: #e0e0e0;
