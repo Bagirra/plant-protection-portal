@@ -17,7 +17,7 @@ async function fetchWeatherForecast() {
 
 // Функция для обновления текущих данных на экране
 function updateCurrentWeather(data) {
-    document.getElementById('weatherIcon').src = 'weather-icon.png'; // Заменить на нужную иконку
+    document.getElementById('weatherIcon').src = 'images/sunny.png'; 
     document.getElementById('temperature').innerText = `${data.metric.temp} °C`;
     document.getElementById('humidity').innerText = `Влажность: ${data.humidity} %`;
     document.getElementById('windSpeed').innerText = `Ветер: ${data.metric.windSpeed} км/ч`;
@@ -32,7 +32,7 @@ function updateWeatherForecast(forecast) {
     for (let i = 0; i < forecast.calendarDayTemperatureMax.length; i++) {
         const dayForecast = `
             <div class="forecast-item">
-                <img src="weather-icon.png" alt="Иконка погоды"> <!-- Заменить на реальную иконку -->
+                <img src="images/sunny.png" alt=""> 
                 <h3>${forecast.dayOfWeek[i]}</h3>
                 <p>${forecast.calendarDayTemperatureMax[i]} °C</p>
                 <p>${forecast.calendarDayTemperatureMin[i]} °C</p>

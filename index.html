@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plant Protection Portal</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
 </head>
 <body>
     <div class="content-wrapper">
@@ -15,8 +16,8 @@
                 <ul>
                     <li><a href="index.html">Главная</a></li>
                     <li><a href="pests.html">Вредители и Болезни</a></li>
-                    <li><a href="export.html">Экспорт</a></li>
-                    <li><a href="about.html">О Нас</a></li>
+                    <!-- <li><a href="export.html">Экспорт</a></li>
+                    <li><a href="about.html">О Нас</a></li> -->
                     <li><a href="meteo.html">Метео</a></li>
                     <li><a href="plan.html">Защита растений</a></li>
                 </ul>
@@ -29,13 +30,13 @@
         </main>
         
     <header>
-        <h1>Текущие данные и прогноз погоды</h1>
+        <h1>Погода сегодня</h1>
     </header>
 
     <main>
         <section id="currentWeather" class="weather-section">
             <div class="weather-icon-container">
-                <img id="weatherIcon" alt="Weather Icon" src="weather-icon.png"> <!-- Заменить на реальный путь к иконке -->
+                <img id="weatherIcon" alt="Weather Icon" src="images/sunny.png"> <!-- Заменить на реальный путь к иконке -->
             </div>
             <div class="weather-info">
                 <p id="temperature">— °C</p>
@@ -44,9 +45,14 @@
                 <p id="precipitation">Осадки: — мм</p>
             </div>
         </section>
+    </main>
 
+    <header>
+        <h1>Прогноз на 5 дней</h1>
+    </header>
+
+    <main>
         <section id="forecast">
-            <h2>Прогноз на 5 дней</h2>
             <div id="forecastContainer" class="forecast-section">
                 <!-- Прогноз будет отображаться здесь -->
             </div>
@@ -68,5 +74,7 @@
             <p>&copy; 2024 Plant Protection Portal</p>
         </footer>
     </div>
+    
+    
 </body>
 </html>
