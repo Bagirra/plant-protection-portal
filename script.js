@@ -30,9 +30,19 @@ function updateWeatherForecast(forecast) {
     forecastContainer.innerHTML = '';  // Очищаем контейнер
 
     for (let i = 0; i < forecast.calendarDayTemperatureMax.length; i++) {
+        // Определяем иконку в зависимости от типа погоды
+        let iconSrc = 'images/sunny.png'; // По умолчанию солнечно
+        if (forecast.narrative[i].toLowerCase().includes('дождь')) {
+            iconSrc = 'images/rain.png';
+        } else if (forecast.narrative[i].toLowerCase().includes('пасмурно')) {
+            iconSrc = 'images/overcast.png';
+        } else if (forecast.narrative[i].toLowerCase().includes('облачно')) {
+            iconSrc = 'images/cloudy.png';
+        }
+
         const dayForecast = `
             <div class="forecast-item">
-                <img src="images/sunny.png" alt=""> 
+                <img src="${iconSrc}" alt="Weather Icon"> 
                 <h3>${forecast.dayOfWeek[i]}</h3>
                 <p>${forecast.calendarDayTemperatureMax[i]} °C</p>
                 <p>${forecast.calendarDayTemperatureMin[i]} °C</p>
@@ -42,7 +52,6 @@ function updateWeatherForecast(forecast) {
         forecastContainer.innerHTML += dayForecast;
     }
 }
-
 // Инициализация данных при загрузке страницы
 window.onload = async function() {
     try {
