@@ -11,8 +11,9 @@ body {
 header {
     background-color: #94e797;
     color: white;
-    padding: 10px 0;
+    padding: 10px;
     text-align: center;
+    
 }
 
 /* Стили для навигации */
@@ -238,55 +239,53 @@ h1 {
 
 .forecast-section {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    flex-wrap: wrap;
+    justify-content: space-between; /* Равномерное распределение элементов */
+    flex-wrap: nowrap; /* Элементы не переносятся на следующую строку */
+    background-color: #ffffff; /* Белый фон для всей секции */
+    padding: 15px;
+    border-radius: 10px;
+    overflow-x: auto; /* Прокрутка, если не помещается на экран */
 }
 
 .forecast-item {
-    background-color: #f0f8ff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    width: 150px;
-    padding: 15px;
+    background-color: transparent; /* Прозрачный фон для отдельных элементов */
+    border: none; /* Убираем границы */
+    width: 12%; /* Ширина элемента около 12%, чтобы все элементы умещались в одну строку */
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.forecast-item img {
-    width: 50px;
-    height: 50px;
     margin-bottom: 10px;
 }
 
+.forecast-item img {
+    width: 40px; /* Уменьшенный размер иконок для компактного вида */
+    height: 40px;
+    margin-bottom: 5px;
+}
+
 .forecast-item h3 {
-    margin: 10px 0;
-    font-size: 16px;
-    color: #eed1b7;
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333; /* Цвет текста */
 }
 
 .forecast-item p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #333;
+    margin: 3px 0;
+    font-size: 12px; /* Меньший шрифт для текста */
+    color: #666;
 }
 
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
-    .weather-section {
-        flex-direction: column;
-        align-items: center;
+    .forecast-section {
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
-    .forecast-section {
-        justify-content: center;
+    .forecast-item {
+        width: 45%; /* Ширина элемента 45%, чтобы помещалось по 2 элемента в ряд на мобильных устройствах */
+        margin-bottom: 10px;
     }
 }
-.content-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+
 /* Для планшетов (от 768px до 1024px) */
 @media (max-width: 1024px) {
     .content-wrapper {
