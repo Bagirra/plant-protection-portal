@@ -61,6 +61,11 @@
         function roundToInteger(value) {
             return value !== undefined && !isNaN(value) ? Math.round(value) : 0;
         }
+        
+        // Функция для округления числа до десятых
+        function roundToTenths(value) {
+            return value !== undefined && !isNaN(value) ? Math.round(value * 10) / 10 : 0;
+        }
     
         // Функция для форматирования даты в строку формата YYYYMMDD
         function formatDate(date) {
@@ -104,7 +109,7 @@
                         <td>${roundToInteger(row.metric.windspeedAvg)} км/ч</td>
                         <td>${roundToInteger(row.metric.dewptHigh)} °C</td>
                         <td>${humidity} %</td>
-                        <td>${roundToInteger(row.metric.precipTotal)} мм</td>
+                        <td>${roundToTenths(row.metric.precipTotal)} мм</td>
                     </tr>
                 `;
     

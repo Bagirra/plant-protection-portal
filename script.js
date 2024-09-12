@@ -30,8 +30,12 @@ function updateCurrentWeather(data) {
     document.getElementById('temperature').innerText = `${data.metric.temp} °C`;
     document.getElementById('humidity').innerText = `Влажность: ${data.humidity} %`;
     document.getElementById('windSpeed').innerText = `Ветер: ${data.metric.windSpeed} км/ч`;
-    document.getElementById('precipitation').innerText = `Осадки: ${data.metric.precipTotal} мм`;
+     
+    // Используем осадки за последний час (если доступно)
+     const precipitation = data.metric.precipLastHour || data.metric.precipTotal; 
+     document.getElementById('precipitation').innerText = `Осадки: ${precipitation} мм`;
 }
+
 
 // Функция для отображения прогноза погоды
 function updateWeatherForecast(forecast) {
