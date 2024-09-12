@@ -26,11 +26,35 @@
         <main>
             <h2>Портал защиты растений</h2>
             <p>Получайте актуальные новости и информацию о вредителях и болезнях растений на территории Республики Молдова, времени и способах обработки.</p>
-            <a href="subscribe.html" class="button">Подписаться на уведомления</a>
+            <a href="#" class="button" id="subscribeButton">Подписаться на уведомления</a>
+
+            <!-- Всплывающее окно для подписки -->
+            <div id="subscribePopup" class="popup">
+                <div class="popup-content subscription-form">
+                    <h2>Подписка на уведомления</h2>
+                    <form id="subscribeForm">
+                        <label for="email">Электронная почта:</label>
+                        <input type="email" id="email" required>
+                        
+                        <label for="method">Выберите метод подписки:</label>
+                        <select id="method" required>
+                            <option value="phone">По номеру телефона</option>
+                            <option value="google">Через Google аккаунт</option>
+                        </select>
+                        
+                        <div id="phoneInput" class="hidden">
+                            <label for="phone">Введите номер телефона:</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        
+                        <button type="submit" class="button">Подписаться</button>
+                    </form>
+                </div>
+            </div>
         </main>
         
     <header>
-        <h1>Погода сегодня</h1>
+        <h1>Тараклия погода сегодня</h1>
     </header>
 
     <section id="currentWeather" class="weather-section">

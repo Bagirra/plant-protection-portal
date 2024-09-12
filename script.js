@@ -100,3 +100,37 @@ function showDetails(detailId) {
     }
 }
 
+// Показать всплывающее окно при нажатии на кнопку
+document.getElementById('subscribeButton').addEventListener('click', function () {
+    document.getElementById('subscribePopup').style.display = 'block';
+});
+
+// Логика для подписки и скрытия всплывающего окна
+document.getElementById('subscribeForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const method = document.getElementById('method').value;
+    const phone = document.getElementById('phone').value;
+
+    // Здесь может быть отправка данных на сервер или их сохранение
+    localStorage.setItem('subscribed', true);
+    localStorage.setItem('email', email);
+    localStorage.setItem('method', method);
+    if (method === 'phone') {
+        localStorage.setItem('phone', phone);
+    }
+
+    // Скрыть форму и показать сообщение
+    document.getElementById('subscribePopup').style.display = 'none';
+    alert('Вы успешно подписались на уведомления!');
+});
+
+// Скрывать поле номера телефона, если выбран Google аккаунт
+document.getElementById('method').addEventListener('change', function () {
+    if (this.value === 'phone') {
+        document.getElementById('phoneInput').classList.remove('hidden');
+    } else {
+        document.getElementById('phoneInput').classList.add('hidden');
+    }
+});
+
