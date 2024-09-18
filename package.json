@@ -1,0 +1,26 @@
+{
+  "name": "plant-protection-portal",
+  "version": "1.0.0",
+  "description": "Plant protection portal for pest notification",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ps://bagirra.github.io/plant-protection-portal/"
+  },
+  "keywords": [
+    "[\"plant",
+    "protection\"",
+    "\"agriculture\"",
+    "\"pest",
+    "control\"",
+    "\"weather\"]"
+  ],
+  "author": "Anastasia",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^10.13.1"
+  }
+}
