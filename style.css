@@ -273,6 +273,53 @@ h1 {
     font-size: 12px; /* Меньший шрифт для текста */
     color: #666;
 }
+.news-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.news-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 20px;
+    width: 400px; /* Увеличенная ширина */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.news-item:hover {
+    transform: scale(1.02);
+}
+
+.news-image {
+    max-width: 100%; /* Обеспечивает отзывчивость изображений */
+    height: auto;
+}
+
+.news-video {
+    max-width: 100%; /* Обеспечивает отзывчивость видео */
+    height: auto;
+}
+.news-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.news-item h2 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.news-item p {
+    font-size: 1rem;
+    color: #666;
+}
 
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
@@ -359,6 +406,31 @@ h1 {
 
     footer {
         padding: 10px 0;
+    }
+}
+/* Адаптация для планшетов */
+@media (max-width: 768px) {
+    .news-item {
+        width: 90%; /* Уменьшение ширины на планшетах */
+        margin: 10px 0; /* Увеличение отступов */
+    }
+}
+
+/* Адаптация для мобильных телефонов */
+@media (max-width: 480px) {
+    .news-section {
+        flex-direction: column; /* Упорядочивание элементов в один столбец */
+        align-items: center; /* Центрирование элементов */
+    }
+
+    .news-item {
+        width: 95%; /* Почти полная ширина для мобильных */
+        margin: 10px 0; /* Увеличение отступов */
+        padding: 15px; /* Уменьшение отступов */
+    }
+
+    h2, h3, p {
+        font-size: 16px; /* Уменьшение размера шрифта для мобильных устройств */
     }
 }
 
