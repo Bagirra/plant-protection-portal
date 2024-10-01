@@ -389,14 +389,24 @@ a {
     border-radius: 5px;
     margin-bottom: 10px;
 }
+
 h3 {
     font-size: 1.2em;
+    cursor: pointer;
 }
 
 p {
     font-size: 1em;
     line-height: 1.5;
 }
+
+.pest-description {
+    display: none;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+}
+
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
     .forecast-section {

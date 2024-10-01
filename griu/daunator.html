@@ -24,7 +24,13 @@
             <div class="pest-item">
                 <h3>Злаковые тли (fam. Aphididae)</h3>
                 <img src="images/aphididae.jpg" alt="Злаковые тли">
-                <p>Описание вредителя: короткое описание того, как вредитель влияет на культуру и его особенности.</p>
+                <div class="pest-description">
+                    <p><strong>Описание:</strong></p>
+                    <p>Eriophyes vitis (зудень). Тело клеща удлиненной, цилиндрической формы, длиной всего 0,15 мм. Зимуют самки под чешуйками глазков с колониями самок почкового клеща и других четырехногих клещей, реже в наружном войлоке, в трещинах коры...</p>
+                    <p><strong>Стадии развития:</strong> Цикл развития от яйца до взрослого клеща – 10-14 дней. Дает до 7-8 поколений за сезон.</p>
+                    <p><strong>Повреждения:</strong> Первое поколение... (продолжение описания)</p>
+                    <p><strong>Меры борьбы:</strong> Клещ наиболее уязвим для акарицидных обработок в периоды массового расселения на новые листья...</p>
+                </div>
             </div>
             <div class="pest-item">
                 <h3>Озимая совка (Agrotis segetum)</h3>
@@ -36,9 +42,53 @@
                 <img src="images/zabrus_tenebrioides.jpg" alt="Хлебная жужелица">
                 <p>Описание вредителя: краткое описание и способы защиты растений.</p>
             </div>
+            <div class="pest-item">
+                <h3>Вредная черепашка (Eurigaster integriceps)</h3>
+                <img src="images/zabrus_tenebrioides.jpg" alt="Хлебная жужелица">
+                <p>Описание вредителя: краткое описание и способы защиты растений.</p>
+            </div>
+            <div class="pest-item">
+                <h3>Пшеничный трипс (Haplothrips tritici)</h3>
+                <img src="images/zabrus_tenebrioides.jpg" alt="Хлебная жужелица">
+                <p>Описание вредителя: краткое описание и способы защиты растений.</p>
+            </div>
+            <div class="pest-item">
+                <h3>Хлебные жуки (Anisoplia sp.)</h3>
+                <img src="images/zabrus_tenebrioides.jpg" alt="Хлебная жужелица">
+                <p>Описание вредителя: краткое описание и способы защиты растений.</p>
+            </div>
+            <div class="pest-item">
+                <h3>Пьявица красногрудая (Oulema melanopus)</h3>
+                <img src="images/zabrus_tenebrioides.jpg" alt="Хлебная жужелица">
+                <p>Описание вредителя: краткое описание и способы защиты растений.</p>
+            </div>
+            <div class="pest-item">
+                <h3>Овсяная шведская муха, Черная пшеничная муха (Oscinella sp., Phorbia sp.)</h3>
+                <img src="images/zabrus_tenebrioides.jpg" alt="Хлебная жужелица">
+                <p>Описание вредителя: краткое описание и способы защиты растений.</p>
+            </div>
+            <div class="pest-item">
+                <h3>Мышевидные грызуны (fam. Muridae)</h3>
+                <img src="images/zabrus_tenebrioides.jpg" alt="Хлебная жужелица">
+                <p>Описание вредителя: краткое описание и способы защиты растений.</p>
+            </div>
             <!-- Добавьте другие вредители аналогично -->
         </div>
     </main>
+    <script>
+        // JavaScript для раскрытия и сворачивания описаний
+        document.querySelectorAll('.pest-item h3, .pest-item img').forEach(item => {
+            item.addEventListener('click', function() {
+                const description = this.parentElement.querySelector('.pest-description');
+                // Переключение между скрытым и видимым состоянием
+                if (description.style.display === "none" || description.style.display === "") {
+                    description.style.display = "block";
+                } else {
+                    description.style.display = "none";
+                }
+            });
+        });
+    </script>
    </header>
 </body>
 </html>
