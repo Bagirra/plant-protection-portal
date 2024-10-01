@@ -14,7 +14,7 @@
             <ul>
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="pests.html">Вредители и Болезни</a></li>
-                <li><a href="export.html">Экспорт</a></li>
+                <li><a href="meteo.html">Экспорт</a></li>
                 <li><a href="about.html">О Нас</a></li>
             </ul>
         </nav>
@@ -22,12 +22,45 @@
     <main>
         <h2>Каталог Вредителей и Болезней</h2>
         <div id="content">
-            <!-- Список культур будет отображаться здесь -->
+            <h5>Культуры будут обновляться в течение сезона. Выберите культуру из списка:</h5>
+            <ul>
+                <!-- Пшеница -->
+                <li>
+                    <div class="culture-item">Пшеница</div>
+                    <ul class="pest-list">
+                        <li class="pest-item"><a href="griu/daunator.html">Вредители</a></li>
+                        <li class="pest-item"><a href="griu/bolii.html">Болезни</a></li>
+                    </ul>
+                </li>
+                <!-- Рапс -->
+                <li>
+                    <div class="culture-item">Рапс</div>
+                    <ul class="pest-list">
+                        <li class="pest-item"><a href="rapita/daunator.html">Вредители</a></li>
+                        <li class="pest-item"><a href="rapita/bolii.html">Болезни</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </main>
+    
     <footer>
         <p>&copy; 2024 Plant Protection Portal</p>
     </footer>
+    <script>
+        // Функция для отображения или скрытия списка вредителей и болезней
+        document.querySelectorAll('.culture-item').forEach(cultureItem => {
+            cultureItem.addEventListener('click', function () {
+                const pestList = this.nextElementSibling;
+                if (pestList.style.display === "block") {
+                    pestList.style.display = "none";
+                } else {
+                    pestList.style.display = "block";
+                }
+            });
+        });
+    </script>
+    
     
 </body>
 </html>
