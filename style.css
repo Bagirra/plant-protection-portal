@@ -361,12 +361,14 @@ li {
 
 .pest-item:hover {
     background-color: #aed581;
+    cursor: pointer;
 }
 
 a {
     text-decoration: none;
     color: #000;
 }
+
 .pest-list, .disease-list {
     display: flex;
     flex-wrap: wrap;
@@ -381,6 +383,7 @@ a {
     border-radius: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer; 
 }
 
 .pest-item img, .disease-item img {
@@ -390,44 +393,112 @@ a {
     margin-bottom: 10px;
 }
 
-h3 {
-    font-size: 1.2em;
+.pest-description img {
+    display: inline-block;
+    width: 30%;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.pest-description .image-gallery {
+    display: flex;
+    justify-content: space-between;
+}
+/* Кнопка для закрытия */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #139619;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1001;
+    transition: background-color 0.3s ease;
+}
+
+.close-btn:hover {
+    background-color: #139619;
+}
+
+/* Дополнительные изменения для описания */
+.pest-description {
+    display: none;
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    background-color: white;
+    z-index: 1000;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.pest-description img {
+    display: inline-block;
+    width: 30%;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+/* Изменение курсора на кликающую руку при наведении на закрытые блоки */
+.pest-item h3, .pest-item img {
     cursor: pointer;
 }
 
-p {
-    font-size: 1em;
-    line-height: 1.5;
+.pest-description .image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Автоматическое количество колонок */
+    grid-gap: 10px; /* Отступы между изображениями */
+    margin-top: 20px;
 }
 
-.pest-description {
-    display: none;
-    background-color: #f9f9f9;
-    padding: 10px;
+.pest-description .image-gallery img {
+    width: 100%;
+    height: 200px; /* Определённая высота */
+    object-fit: cover; /* Изображения сохраняют пропорции и обрезаются по необходимости */
     border-radius: 5px;
 }
-/* Адаптация для планшетов */
-@media (max-width: 1024px) {
-    .pest-item, .disease-item {
-        width: 45%; /* Уменьшаем ширину элементов */
-    }
-}
-
-/* Адаптация для телефонов */
+/* Адаптация для планшетов и телефонов */
 @media (max-width: 768px) {
     .pest-item, .disease-item {
-        width: 100%; /* Элементы растягиваются на всю ширину экрана */
+        width: 100%;
+        margin-bottom: 15px;
     }
 
-    h3 {
-        font-size: 1.1em; /* Уменьшаем размер заголовка */
+    .pest-description {
+        margin-top: 10px;
+    }
+    
+    /* Уменьшение размера изображений */
+    .pest-item img, .disease-item img {
+        margin-bottom: 5px;
     }
 
-    p {
-        font-size: 0.9em; /* Уменьшаем размер текста */
+    /* Добавление отступов для удобного просмотра на маленьких экранах */
+    .pest-description {
+        padding: 15px;
     }
 }
 
+/* Адаптация для телефонов (менее 480px) */
+@media (max-width: 480px) {
+    .pest-item, .disease-item {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .pest-description {
+        padding: 15px;
+    }
+}
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
     .forecast-section {
