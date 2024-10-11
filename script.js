@@ -32,7 +32,12 @@ function updateCurrentWeather(data) {
     document.getElementById('humidity').innerText = `Влажность: ${data.humidity} %`;
     document.getElementById('windSpeed').innerText = `Ветер: ${data.metric.windSpeed} км/ч`;
      
-    // Используем осадки за последний час (если доступно)
+     // Добавляем отображение давления
+     const pressure = data.metric.pressure;
+     const pressureInMmHg = (pressure * 0.75006).toFixed(2); // Переводим в мм рт. ст.
+     document.getElementById('pressure').innerText = `Давление: ${pressureInMmHg} мм рт. ст.`;
+    
+     // Используем осадки за последний час (если доступно)
      const precipitation = data.metric.precipLastHour || data.metric.precipTotal; 
      document.getElementById('precipitation').innerText = `Осадки: ${precipitation} мм`;
 }
