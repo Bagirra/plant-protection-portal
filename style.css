@@ -43,6 +43,7 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 1200px;
     margin: 20px auto;
+    text-align: center;
 }
 
 /* Стили для заголовков */
@@ -57,7 +58,7 @@ h2 {
     position: relative;
     height: 30px;
     background: linear-gradient(to right, #c6e1c3 0%, #94e797 100%);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     border-radius: 15px;
 }
 
@@ -79,52 +80,129 @@ h2 {
     top: 0;
     left: 0;
     right: 0;
-    padding: 0 10px;
+    padding: 0 5px;
     color: #333;
     font-weight: bold;
+    font-size: 10px; /* Default size */
 }
 
 /* Стили для кликабельных элементов */
 .action-items {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 5px; /* Minimal spacing between items */
+    margin-bottom: 10px;
 }
 
 .action-item {
     text-align: center;
     cursor: pointer;
+    flex: 1; /* Distribute evenly */
 }
 
 .action-item h4 {
-    margin: 5px 0;
-    font-size: 16px;
+    margin: 2px 0; /* Minimal spacing between text and image */
+    font-size: 12px; /* Default size */
     color: #009f5d;
 }
 
 .action-item img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px; /* Smaller images by default */
+    margin-bottom: 2px; /* Minimal spacing */
 }
 
 /* Фазы винограда */
 .phases {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 10px;
+    flex-wrap: nowrap; /* Keep images in a horizontal row */
+}
+
+.phase {
+    text-align: center;
+    flex: 1; /* Equal width */
+    margin: 0 1px; /* Minimal horizontal spacing */
+}
+
+.phase img {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 1px; /* Minimal space between image and text */
+}
+
+.phase p {
+    font-size: 7px; /* Smaller text */
+    margin-top: 0;
+    margin-bottom: 1px;
+}
+
+/* Фон для фаз винограда */
+.phases-background {
+    background-color: #e0e0e0;
+    padding: 5px 0; /* Уменьшенная высота фона */
+    margin-top: 10px;
+    position: relative;
+}
+
+/* Фазы винограда */
+.phases {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
 }
 
 .phase {
     text-align: center;
     flex-grow: 1;
-    margin: 0 10px;
+    margin: 0 5px;
 }
 
 .phase img {
-    width: 50px;
-    height: 50px;
+    width: 30px; /* Уменьшенный размер изображения */
+    height: 30px;
     margin-bottom: 5px;
 }
+
+/* Горизонтальная линия */
+.horizontal-line {
+    position: absolute;
+    bottom: 5px; /* Поднятая линия ближе к изображениям */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #009f5d;
+}
+
+/* Вертикальные линии */
+.vertical-line {
+    position: absolute;
+    width: 2px;
+    height: 10px; /* Уменьшенная высота вертикальных линий */
+    background-color: #009f5d;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.phase:first-child .vertical-line {
+    display: none;
+}
+
+.phase:not(:first-child):before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -1px;
+    width: 2px;
+    background-color: #009f5d;
+    height: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 
 /* Стили для таблицы */
 table {
@@ -466,7 +544,170 @@ a {
     object-fit: cover; /* Изображения сохраняют пропорции и обрезаются по необходимости */
     border-radius: 5px;
 }
-/* Адаптация для планшетов и телефонов */
+/* Адаптация для планшетов plan*/
+/* Шкала периода обработки */
+.timeline {
+    position: relative;
+    height: 20px; /* Reduced height for smaller screens */
+    background: linear-gradient(to right, #c6e1c3 0%, #94e797 100%);
+    margin-bottom: 15px;
+    border-radius: 10px; /* Reduced border radius */
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #009f5d;
+    transform: translateY(-50%);
+}
+
+.timeline-labels {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 2px; /* Minimal padding */
+    color: #333;
+    font-weight: bold;
+    font-size: 8px; /* Smaller font size */
+}
+
+/* Стили для кликабельных элементов */
+.action-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 2px; /* Minimal gap */
+    margin-bottom: 5px; /* Reduced margin */
+}
+
+.action-item {
+    text-align: center;
+    cursor: pointer;
+    flex: 1; /* Equal width for all items */
+}
+
+.action-item h4 {
+    margin: 1px 0; /* Minimal spacing */
+    font-size: 10px; /* Smaller font */
+    color: #009f5d;
+}
+
+.action-item img {
+    width: 30px; /* Smaller image size */
+    height: 30px;
+    margin-bottom: 1px; /* Minimal spacing below image */
+}
+
+/* Фазы винограда */
+.phases {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* Keep images in a row */
+    margin: 0 5px; /* Reduced horizontal margin */
+}
+
+.phase {
+    text-align: center;
+    flex: 1; /* Equal width for each phase */
+    margin: 0 2px; /* Minimal spacing between phases */
+    position: relative;
+}
+
+.phase img {
+    width: 25px; /* Reduced image size */
+    height: 25px;
+    margin-bottom: 1px; /* Minimal spacing below image */
+}
+
+.phase p {
+    font-size: 6px; /* Smaller text */
+    margin: 0; /* Removed spacing */
+}
+
+/* Фон для фаз винограда */
+.phases-background {
+    background-color: #e0e0e0;
+    padding: 3px 0; /* Compact padding */
+    margin-top: 5px; /* Reduced margin */
+    position: relative;
+}
+
+/* Горизонтальная линия */
+.horizontal-line {
+    position: absolute;
+    bottom: 3px; /* Close to the phases */
+    left: 0;
+    width: 100%;
+    height: 1px; /* Thinner line */
+    background-color: #009f5d;
+}
+
+/* Удаление вертикальных линий */
+.vertical-line {
+    display: none;
+}
+
+/* Адаптация для планшетов */
+@media (max-width: 768px) {
+    .timeline {
+        height: 15px; /* Further reduced height */
+    }
+
+    .timeline-labels {
+        font-size: 7px; /* Smaller font */
+    }
+
+    .action-items img, .phase img {
+        width: 10px; /* Smaller images */
+        height: 10px;
+    }
+
+    .action-item h4, .phase p {
+        font-size: 6px; /* Smaller text */
+    }
+
+    .phases-background {
+        margin-top: 3px; /* Tighten spacing */
+    }
+}
+
+/* Адаптация для телефонов */
+@media (max-width: 480px) {
+    .timeline {
+        height: 10px; /* Minimal height */
+    }
+
+    .timeline-labels {
+        font-size: 6px; /* Smallest font size */
+    }
+
+    .action-items img, .phase img {
+        width: 5px; /* Smallest images */
+        height: 5px;
+    }
+
+    .action-item h4, .phase p {
+        font-size: 5px; /* Smallest text size */
+    }
+
+    .action-items, .phases {
+        gap: 1px; /* Minimal gaps */
+    }
+
+    .phases-background {
+        padding: 2px 0; /* Tight padding */
+        margin-top: 2px; /* Minimal margin */
+    }
+}
+
+/* Адаптация для планшетов и телефонов Pest */
 @media (max-width: 768px) {
     .pest-item, .disease-item {
         width: 100%;
@@ -499,7 +740,7 @@ a {
         padding: 15px;
     }
 }
-/* Адаптивность для мобильных устройств */
+/* Адаптивность для мобильных устройств прогноз */
 @media (max-width: 768px) {
     .forecast-section {
         flex-direction: row;
@@ -512,81 +753,8 @@ a {
     }
 }
 
-/* Для планшетов (от 768px до 1024px) */
-@media (max-width: 1024px) {
-    .content-wrapper {
-        padding: 10px;
-    }
 
-    .phases {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .phase {
-        margin: 10px 0;
-    }
-   
-    .timeline {
-        height: 20px;
-    }
-
-    .timeline-labels {
-        font-size: 14px;
-    }
-}
-
-/* Для мобильных устройств (до 768px) */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    .phases {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .phase img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .phase p {
-        font-size: 8px;
-    }
-
-    .action-items {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .action-item {
-        margin: 15px 0;
-    }
-
-    .timeline {
-        height: 20px;
-    }
-
-    .timeline-labels {
-        font-size: 12px;
-    }
-
-    main {
-        padding: 15px;
-    }
-
-    footer {
-        padding: 10px 0;
-    }
-}
-/* Адаптация для планшетов */
+/* Адаптация для планшетов Новости*/
 @media (max-width: 768px) {
     .news-item {
         width: 90%; /* Уменьшение ширины на планшетах */
@@ -612,66 +780,56 @@ a {
     }
 }
 
-/* Фон для фаз винограда */
-.phases-background {
-    background-color: #e0e0e0;
-    padding: 5px 0; /* Уменьшенная высота фона */
-    margin-top: 10px;
-    position: relative;
+
+/* Адаптация для планшетов */
+@media (max-width: 768px) {
+    table {
+        font-size: 12px; /* Smaller text for tables */
+    }
+
+    th, td {
+        padding: 6px; /* Less padding */
+    }
+
+    #filter {
+        flex-direction: column; /* Stack filters vertically */
+        align-items: center; /* Center align filters */
+    }
+
+    #filter label, #filter input[type="date"] {
+        width: 100%; /* Make each filter element full width */
+        text-align: center;
+    }
 }
 
-/* Фазы винограда */
-.phases {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 10px;
-}
+/* Адаптация для телефонов */
+@media (max-width: 480px) {
+    table {
+        font-size: 10px; /* Smaller text for narrow screens */
+    }
 
-.phase {
-    text-align: center;
-    flex-grow: 1;
-    margin: 0 5px;
-}
+    th, td {
+        padding: 4px; /* Minimal padding */
+    }
 
-.phase img {
-    width: 30px; /* Уменьшенный размер изображения */
-    height: 30px;
-    margin-bottom: 5px;
-}
+    th {
+        font-size: 11px; /* Smaller header text */
+    }
 
-/* Горизонтальная линия */
-.horizontal-line {
-    position: absolute;
-    bottom: 5px; /* Поднятая линия ближе к изображениям */
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #009f5d;
-}
+    #filter {
+        flex-direction: column;
+        gap: 5px; /* Minimal gap between elements */
+    }
 
-/* Вертикальные линии */
-.vertical-line {
-    position: absolute;
-    width: 2px;
-    height: 10px; /* Уменьшенная высота вертикальных линий */
-    background-color: #009f5d;
-    top: 50%;
-    transform: translateY(-50%);
-}
+    #filter label, #filter input[type="date"] {
+        width: 100%;
+        text-align: center;
+        font-size: 10px; /* Smaller font for labels and inputs */
+    }
 
-.phase:first-child .vertical-line {
-    display: none;
-}
-
-.phase:not(:first-child):before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: -1px;
-    width: 2px;
-    background-color: #009f5d;
-    height: 15px;
-    top: 50%;
-    transform: translateY(-50%);
+    table {
+        display: block; /* Allow horizontal scrolling */
+        overflow-x: auto;
+        white-space: nowrap; /* Prevent text wrapping */
+    }
 }

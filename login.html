@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+
+        // Инициализация Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyD2-uD34cHObkqQ8RE-Q6Dyb2vadfb2WtU",
+            authDomain: "plant-49d4d.firebaseapp.com",
+            projectId: "plant-49d4d",
+            storageBucket: "plant-49d4d.appspot.com",
+            messagingSenderId: "531376250260",
+            appId: "1:531376250260:web:5990e5414890299a6c0381",
+            measurementId: "G-45R61MG9V5"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('loginForm').addEventListener('submit', async function (e) {
+                e.preventDefault();
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+
+                try {
+                    // Устанавливаем сохранение сессии
+                    await setPersistence(auth, browserLocalPersistence);
+
+                    // Пытаемся выполнить вход
+                    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                    alert("Вход выполнен успешно!");
+
+                    // Перенаправляем пользователя в личный кабинет
+                    window.location.href = "dashboard.html";
+                } catch (error) {
+                    console.error("Ошибка при входе:", error);
+                    alert("Ошибка при входе: " + error.message);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="content-wrapper">
+        <header>
+            <h1>Вход в Plant Protection Portal</h1>
+        </header>
+        <main>
+            <form id="loginForm">
+                <label for="loginEmail">Электронная почта:</label>
+                <input type="email" id="loginEmail" required>
+                <label for="loginPassword">Пароль:</label>
+                <input type="password" id="loginPassword" required>
+                <button type="submit">Войти</button>
+            </form>
+            <p>Нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
+        </main>
+    </div>
+</body>
+</html>

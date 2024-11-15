@@ -1,146 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+<<!DOCTYPE html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plant Protection Portal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
-     <!-- Firebase App (the core Firebase SDK) -->
-    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
-    <!-- Firebase Firestore -->
-    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"></script>
 
     <!-- Firebase SDK -->
-    <script type="module">
-        // Import Firebase modules (v9+ modular syntax)
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
-
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyD2-uD34cHObkqQ8RE-Q6Dyb2vadfb2WtU",
-            authDomain: "plant-49d4d.firebaseapp.com",
-            projectId: "plant-49d4d",
-            storageBucket: "plant-49d4d.appspot.com",
-            messagingSenderId: "531376250260",
-            appId: "1:531376250260:web:5990e5414890299a6c0381",
-            measurementId: "G-45R61MG9V5"
-        };
-
-        // Initialize Firebase and Firestore
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        console.log("Firebase initialized:", app);
-
-        // Function to add subscriber to Firestore
-        async function addSubscriber(email, method, phone = null) {
-            try {
-                const docRef = await addDoc(collection(db, "subscribers"), {
-                    email: email,
-                    method: method,
-                    phone: phone
-                });
-                console.log("Document written with ID: ", docRef.id);
-            } catch (e) {
-                console.error("Error adding document: ", e);
-                throw e;
-            }
-        }
-
-        // Subscription form logic
-        document.addEventListener('DOMContentLoaded', function () {
-            // Open the subscription popup
-            document.getElementById('subscribeButton').addEventListener('click', function () {
-                document.getElementById('subscribePopup').style.display = 'block';
-            });
-
-            // Hide phone input if method is Google
-            document.getElementById('method').addEventListener('change', function () {
-                if (this.value === 'phone') {
-                    document.getElementById('phoneInput').classList.remove('hidden');
-                } else {
-                    document.getElementById('phoneInput').classList.add('hidden');
-                }
-            });
-
-            // Handle form submission
-            document.getElementById('subscribeForm').addEventListener('submit', function (e) {
-                e.preventDefault();
-                const email = document.getElementById('email').value;
-                const method = document.getElementById('method').value;
-                const phone = method === 'phone' ? document.getElementById('phone').value : null;
-
-                console.log("Submitting form with:", { email, method, phone });
-
-                // Add subscriber to Firestore
-                addSubscriber(email, method, phone).then(() => {
-                    alert('Вы успешно подписались на уведомления!');
-                    document.getElementById('subscribePopup').style.display = 'none';
-                }).catch(error => {
-                    console.error('Ошибка при подписке:', error);
-                    alert('Произошла ошибка при подписке.');
-                });
-            });
-        });
-    </script>
-
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
 </head>
-
 <body>
     <div class="content-wrapper">
         <header>
-            <h1>ЗАЩИТА РАСТЕНИЙ</h1>
             <h2>МОЛДОВА ЮГ</h2>
             <nav>
-                <ul>
-                    <li><a href="index.html">Главная</a></li>
+                <ul id="navMenu">
+                    <li id="homeNav"><a href="index.html">Главная</a></li>
                     <li><a href="pests.html">Вредители и Болезни</a></li>
                     <li><a href="news.html">Новости</a></li>
-                    <!--<li><a href="about.html">О Нас</a></li> -->
                     <li><a href="meteo.html">Данные метеостанции</a></li>
-                    <!-- <li><a href="plan.html">Защита растений</a></li> -->
+                    <li id="loginNav"><a href="login.html">Вход</a></li>
+                    <li id="registerNav"><a href="register.html">Регистрация</a></li>
                 </ul>
             </nav>
         </header>
+
        
         <main>
-            <h2>Портал защиты растений</h2>
-            <p>Получайте актуальные новости и информацию о вредителях и болезнях растений.</p>
-            <a href="#" class="button" id="subscribeButton">Подписаться на уведомления</a>
-    
-            <!-- Всплывающее окно для подписки -->
-            <div id="subscribePopup" class="popup" style="display:none;">
-                <div class="popup-content subscription-form">
-                    <h2>Подписка на уведомления</h2>
-                    <form id="subscribeForm">
-                        <label for="email">Электронная почта:</label>
-                        <input type="email" id="email" required>
-                        
-                        <label for="method">Выберите метод подписки:</label>
-                        <select id="method" required>
-                            <option value="phone">По номеру телефона</option>
-                            <option value="google">Через Google аккаунт</option>
-                        </select>
-                        
-                        <div id="phoneInput" class="hidden">
-                            <label for="phone">Введите номер телефона:</label>
-                            <input type="tel" id="phone">
-                        </div>
-                        
-                        <button type="submit" class="button">Подписаться</button>
-                    </form>
-                </div>
-            </div>
-        </main>   
+            <h2>Интегрированная Система Защиты Растений</h2>
+        
+        </main>
+        
     <header>
-        <h1>Тараклия погода сегодня</h1>
+        <h2>Тараклия погода сегодня</h2>
     </header>
-
     <section id="currentWeather" class="weather-section">
         <div class="weather-icon-container">
-            <img id="weatherIcon" alt="Weather Icon" src="images/sunny.png"> <!--  динамическое обновление иконки -->
+            <img id="weatherIcon" alt="Weather Icon" src="images/sunny.png">
         </div>
         <div class="weather-info">
             <p id="temperature">— °C</p>
@@ -152,9 +50,8 @@
     </section>
 
     <header>
-        <h1>Прогноз на 5 дней</h1>
+        <h2>Прогноз на 5 дней</h2>
     </header>
-
     <main>
         <section id="forecast">
             <div id="forecastContainer" class="forecast-section">
@@ -163,6 +60,7 @@
         </section>
     </main>
     
+
     <main>
         <section>
             <h2>Определитель Вредителей и Болезней</h2>
@@ -176,11 +74,78 @@
     </main>
         <script src="path/to/weather-script.js"></script>
         <script src="script.js"></script>
+        <script src="script_i.js"></script>
         <footer>
             <p>&copy; 2024 Plant Protection Portal</p>
         </footer>
         
-    </div>    
+    </div>  
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD2-uD34cHObkqQ8RE-Q6Dyb2vadfb2WtU",
+            authDomain: "plant-49d4d.firebaseapp.com",
+            projectId: "plant-49d4d",
+            storageBucket: "plant-49d4d.appspot.com",
+            messagingSenderId: "531376250260",
+            appId: "1:531376250260:web:5990e5414890299a6c0381",
+            measurementId: "G-45R61MG9V5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Handle user state changes
+        onAuthStateChanged(auth, (user) => {
+            const loginNav = document.getElementById("loginNav");
+            const registerNav = document.getElementById("registerNav");
+            const navMenu = document.getElementById("navMenu");
+
+            if (user) {
+                // User is logged in
+                loginNav.style.display = "none";
+                registerNav.style.display = "none";
+
+                // Add "Личный кабинет" and "Выход"
+                const dashboardNav = document.createElement("li");
+                dashboardNav.id = "dashboardNav";
+                dashboardNav.innerHTML = `<a href="dashboard.html">Личный кабинет</a>`;
+                navMenu.appendChild(dashboardNav);
+
+                const logoutNav = document.createElement("li");
+                logoutNav.id = "logoutNav";
+                logoutNav.innerHTML = `<a href="#" id="logoutButton">Выход</a>`;
+                navMenu.appendChild(logoutNav);
+
+                // Handle logout
+                document.getElementById("logoutButton").addEventListener("click", (e) => {
+                    e.preventDefault();
+                    signOut(auth)
+                        .then(() => {
+                            // Refresh page after logout
+                            window.location.reload();
+                        })
+                        .catch((error) => {
+                            console.error("Ошибка при выходе:", error);
+                        });
+                });
+            } else {
+                // User is logged out
+                loginNav.style.display = "block";
+                registerNav.style.display = "block";
+
+                // Remove "Личный кабинет" and "Выход" if they exist
+                const dashboardNav = document.getElementById("dashboardNav");
+                const logoutNav = document.getElementById("logoutNav");
+                if (dashboardNav) dashboardNav.remove();
+                if (logoutNav) logoutNav.remove();
+            }
+        });
+    </script> 
         
 </body>
 </html>

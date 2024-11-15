@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+
+        // Инициализация Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyD2-uD34cHObkqQ8RE-Q6Dyb2vadfb2WtU",
+            authDomain: "plant-49d4d.firebaseapp.com",
+            projectId: "plant-49d4d",
+            storageBucket: "plant-49d4d.appspot.com",
+            messagingSenderId: "531376250260",
+            appId: "1:531376250260:web:5990e5414890299a6c0381",
+            measurementId: "G-45R61MG9V5"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('registerForm').addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const email = document.getElementById('registerEmail').value;
+                const password = document.getElementById('registerPassword').value;
+
+                try {
+                    await setPersistence(auth, browserLocalPersistence); // Сохраняет сессию
+                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                    alert("Регистрация успешна!");
+                    window.location.href = "dashboard.html"; // Переход в личный кабинет
+                } catch (error) {
+                    console.error("Ошибка при регистрации:", error);
+                    alert("Ошибка при регистрации: " + error.message);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="content-wrapper">
+        <header>
+            <h1>Регистрация на Plant Protection Portal</h1>
+        </header>
+        <main>
+            <form id="registerForm">
+                <input type="email" id="registerEmail" placeholder="Email" required />
+                <input type="password" id="registerPassword" placeholder="Пароль" required />
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

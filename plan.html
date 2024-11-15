@@ -12,15 +12,23 @@
             <h1>План мероприятий по защите виноградников</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="plan.html">План мероприятий</a></li>
-                    <li><a href="meteo.html">Метео данные</a></li>
+                    <li><a href="dashboard.html">Вернуться к списку культур</a></li>
+                    
                 </ul>
             </nav>
         </header>
 
         <main>
             <h2>План мероприятий по виноградникам</h2>
+            <div id="planModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" onclick="closeModal()">&times;</span>
+                    <div id="planDetails">
+                        <!-- План  -->
+                    </div>
+                </div>
+            </div>
+
 
             <!-- Шкала периода обработки -->
             <div class="timeline">
@@ -41,27 +49,27 @@
             <div class="action-items">
                 <div class="action-item">
                     <img src="images/acar.png" alt="">
-                    <h4>Клещи</h4>
+                    <a href="https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=0&t=0&c=10567&comp=0&par=20580&search=C%C4%83utare"><h4>Клещи</h4></a>
                 </div>
                 <div class="action-item">
-                    <img src="disease.png" alt="">
-                    <h4>Мильдью/антракноз</h4>
+                    <img src="images/mild1.jpg" alt="">
+                    <h4>Мильдью</br>антракноз</h4>
                 </div>
                 <div class="action-item">
                     <img src="images/grozd.png" alt="">
-                    <h4>Листовертка</h4>
+                    <a href="https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=0&t=0&c=10567&comp=0&par=18169&search=C%C4%83utare"><h4>Листовёртка</h4></a>
                 </div>
                 <div class="action-item">
-                    <img src="treatment.png" alt="">
+                    <img src="images/o2.jpg" alt="">
                     <h4>Оидиум</h4>
                 </div>
                 <div class="action-item">
                     <img src="images/grozd.png" alt="">
-                    <h4>Листовёртка</h4>
+                    <a href="https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=0&t=0&c=10567&comp=0&par=18169&search=C%C4%83utare"><h4>Листовёртка</h4></a>
                 </div>
                 <div class="action-item">
                     <img src="disease.png" alt="">
-                    <h4>Серая гниль</h4>
+                    <h4>Серая</br> гниль</h4>
                 </div>
                 
             </div>
@@ -71,7 +79,7 @@
             <div class="phases">
                 <div class="phase">
                     <img src="images/1f.png" alt="набухание почек">
-                    <p>набухание почек</p>
+                    <p>набухание</br> почек</p>
                     <div class="vertical-line"></div>
                 </div>
                 <div class="phase">
@@ -86,7 +94,7 @@
                 </div>
                 <div class="phase">
                     <img src="images/f4.png" alt="разрыхление соцветий">
-                    <p>разрыхление соцветий</p>
+                    <p>разрыхление</br> соцветий</p>
                     <div class="vertical-line"></div>
                 </div>
                 <div class="phase">
@@ -96,27 +104,28 @@
                 </div>
                 <div class="phase">
                     <img src="images/f5.png" alt="формирование и рост ягод">
-                    <p>формирование и рост ягод</p>
+                    <p>формирование</br> и рост ягод</p>
                     <div class="vertical-line"></div>
                 </div>
                 <div class="phase">
                     <img src="images/f5.png" alt="смыкание ягод в грозди">
-                    <p>смыкание ягод в грозди</p>
+                    <p>смыкание </br>ягод в грозди</p>
                     <div class="vertical-line"></div>
                 </div>
                 <div class="phase">
                     <img src="images/f6.png" alt="размягчение ягод">
-                    <p>размягчение ягод</p>
+                    <p>размягчение</br> ягод</p>
                     <div class="vertical-line"></div>
                 </div>
                 <div class="phase">
                     <img src="images/f6.png" alt="созревание ягод">
-                    <p>созревание ягод</p>
+                    <p>созревание </br>ягод</p>
                 </div>
             </div>
             <div class="horizontal-line"></div>
         </div>
         </main>
+        <script src="script_p.js"></script>
 
         <footer>
             <p>&copy; 2024 Plant Protection Portal</p>
