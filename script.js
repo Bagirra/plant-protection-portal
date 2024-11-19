@@ -13,57 +13,53 @@ const firebaseConfig = {
     measurementId: "G-45R61MG9V5"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const auth = getAuth(app);
 
-// Валидация email
-function validateEmail(email) {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
-}
+// Handle user state changes
+onAuthStateChanged(auth, (user) => {
+    const loginNav = document.getElementById("loginNav");
+    const registerNav = document.getElementById("registerNav");
+    const navMenu = document.getElementById("navMenu");
 
-// Добавление подписчика в Firestore
-async function addSubscriber(email, method, phone = null) {
-    try {
-        const docRef = await addDoc(collection(db, "subscribers"), { email, method, phone });
-        console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-        console.error("Error adding document: ", e);
-        throw e;
-    }
-}
+    if (user) {
+        // User is logged in
+        loginNav.style.display = "none";
+        registerNav.style.display = "none";
 
-// Обработка событий на странице
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('subscribeButton').addEventListener('click', function () {
-        document.getElementById('subscribePopup').style.display = 'block';
-    });
+        // Add "Личный кабинет" and "Выход"
+        const dashboardNav = document.createElement("li");
+        dashboardNav.id = "dashboardNav";
+        dashboardNav.innerHTML = `<a href="dashboard.html">Личный кабинет</a>`;
+        navMenu.appendChild(dashboardNav);
 
-    document.getElementById('method').addEventListener('change', function () {
-        const phoneInput = document.getElementById('phoneInput');
-        phoneInput.classList.toggle('hidden', this.value !== 'phone');
-        if (this.value !== 'phone') document.getElementById('phone').value = '';
-    });
+        const logoutNav = document.createElement("li");
+        logoutNav.id = "logoutNav";
+        logoutNav.innerHTML = `<a href="#" id="logoutButton">Выход</a>`;
+        navMenu.appendChild(logoutNav);
 
-    document.getElementById('subscribeForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const email = document.getElementById('email').value;
-        const method = document.getElementById('method').value;
-        const phone = method === 'phone' ? document.getElementById('phone').value : null;
-
-        if (!validateEmail(email)) {
-            alert("Пожалуйста, введите действительный email.");
-            return;
-        }
-
-        addSubscriber(email, method, phone).then(() => {
-            alert('Вы успешно подписались на уведомления!');
-            document.getElementById('subscribePopup').style.display = 'none';
-        }).catch(error => {
-            alert('Произошла ошибка при подписке.');
+        // Handle logout
+        document.getElementById("logoutButton").addEventListener("click", (e) => {
+            e.preventDefault();
+            signOut(auth)
+                .then(() => {
+                    // Refresh page after logout
+                    window.location.reload();
+                })
+                .catch((error) => {
+                    console.error("Ошибка при выходе:", error);
+                });
         });
-    });
+    } else {
+        // User is logged out
+        loginNav.style.display = "block";
+        registerNav.style.display = "block";
+
+        // Remove "Личный кабинет" and "Выход" if they exist
+        const dashboardNav = document.getElementById("dashboardNav");
+        const logoutNav = document.getElementById("logoutNav");
+        if (dashboardNav) dashboardNav.remove();
+        if (logoutNav) logoutNav.remove();
+    }
 });
-
-
-

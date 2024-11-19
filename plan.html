@@ -33,7 +33,6 @@
             <!-- Шкала периода обработки -->
             <div class="timeline">
                 <div class="timeline-labels">
-                    <span>Март</span>
                     <span>Апрель</span>
                     <span>Май</span>
                     <span>Июнь</span>
@@ -42,38 +41,111 @@
                     <span>Сентябрь</span>
                     <span>Октябрь</span>
                     <span>Ноябрь</span>
+                    <span>Декабрь</span> 
+                    <span>Февраль</span>
                 </div>
             </div>
+            <!-- Интерактивная линия декад -->
+            <div class="interactive-line">
+                <div class="decade" data-month="Апрель" data-decade="1">1</div>
+                <div class="decade" data-month="Апрель" data-decade="2">2</div>
+                <div class="decade" data-month="Апрель" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Май" data-decade="1">1</div>
+                <div class="decade" data-month="Май" data-decade="2">2</div>
+                <div class="decade" data-month="Май" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Июнь" data-decade="1">1</div>
+                <div class="decade" data-month="Июнь" data-decade="2">2</div>
+                <div class="decade" data-month="Июнь" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Июль" data-decade="1">1</div>
+                <div class="decade" data-month="Июль" data-decade="2">2</div>
+                <div class="decade" data-month="Июль" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Август" data-decade="1">1</div>
+                <div class="decade" data-month="Август" data-decade="2">2</div>
+                <div class="decade" data-month="Август" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Сентябрь" data-decade="1">1</div>
+                <div class="decade" data-month="Сентябрь" data-decade="2">2</div>
+                <div class="decade" data-month="Сентябрь" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Октябрь" data-decade="1">1</div>
+                <div class="decade" data-month="Октябрь" data-decade="2">2</div>
+                <div class="decade" data-month="Октябрь" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Ноябрь" data-decade="1">1</div>
+                <div class="decade" data-month="Ноябрь" data-decade="2">2</div>
+                <div class="decade" data-month="Ноябрь" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Декабрь" data-decade="1">1</div>
+                <div class="decade" data-month="Декабрь" data-decade="2">2</div>
+                <div class="decade" data-month="Декабрь" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Февраль" data-decade="1">1</div>
+                <div class="decade" data-month="Февраль" data-decade="2">2</div>
+                <div class="decade" data-month="Февраль" data-decade="3">3</div>
+            </div>
+                <div id="tooltip" class="tooltip"></div>
 
             <!-- Кликабельные элементы -->
             <div class="action-items">
                 <div class="action-item">
-                    <img src="images/acar.png" alt="">
+                    <img src="images/acar.png" alt="Клещи">
                     <a href="https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=0&t=0&c=10567&comp=0&par=20580&search=C%C4%83utare"><h4>Клещи</h4></a>
                 </div>
+               
                 <div class="action-item">
-                    <img src="images/mild1.jpg" alt="">
+                    <img src="images/grozd.png" alt="Гроздёвка">
+                    <a href="https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=0&t=0&c=10567&comp=0&par=18169&search=C%C4%83utare"><h4>Листовёртка</h4></a>
+                </div>
+                <div class="action-item">
+                    <img src="images/mild1.jpg" alt="Болезни">
                     <h4>Мильдью</br>антракноз</h4>
                 </div>
                 <div class="action-item">
-                    <img src="images/grozd.png" alt="">
+                    <img src="images/grozd.png" alt="Гроздёвка">
                     <a href="https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=0&t=0&c=10567&comp=0&par=18169&search=C%C4%83utare"><h4>Листовёртка</h4></a>
                 </div>
                 <div class="action-item">
                     <img src="images/o2.jpg" alt="">
                     <a href="https://agrodoctor.md/product/kolosal-pro/"><h4>Оидиум</h4></a>
-                    <h4>Оидиум</h4>
+                   
                 </div>
                 <div class="action-item">
                     <img src="images/grozd.png" alt="">
                     <a href="https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=0&t=0&c=10567&comp=0&par=18169&search=C%C4%83utare"><h4>Листовёртка</h4></a>
                 </div>
                 <div class="action-item">
-                    <img src="disease.png" alt="">
+                    <img src="images/sg3.jpg" alt="">
                     <h4>Серая</br> гниль</h4>
+                </div>
+                <div class="action-item">
+                    <img src="images/acar.png" alt="Клещи">
+                    <a href="https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=0&t=0&c=10567&comp=0&par=20580&search=C%C4%83utare"><h4>Удобрения</h4></a>
                 </div>
                 
             </div>
+            
+            <!-- Удобрения -->
+            <div class="fertilizer-background">
+                <div class="fertilizer-phases">
+                    <div class="fertilizer">
+                        <img src="images/fertilizer1.png" alt="">
+                        <p>Азот</p>
+                    </div>
+                    <div class="fertilizer">
+                        <img src="images/fertilizer2.png" alt="">
+                        <p>Фосфор</p>
+                    </div>
+                    <div class="fertilizer">
+                        <img src="images/fertilizer3.png" alt="">
+                        <p>Калий</p>
+                    </div>
+                    <div class="fertilizer">
+                        <img src="images/fertilizer4.png" alt="">
+                        <p>Микроэлементы</p>
+                    </div>
+                    <div class="fertilizer">
+                        <img src="images/fertilizer5.png" alt="">
+                        <p>Органика</p>
+                    </div>
+                </div>
+                <div class="horizontal-line"></div>
+            </div>
+
             <!-- Фазы винограда -->
            <!-- Фазы винограда с фоном и линиями -->
            <div class="phases-background">
@@ -122,12 +194,20 @@
                     <img src="images/f6.png" alt="созревание ягод">
                     <p>созревание </br>ягод</p>
                 </div>
+                <div class="phase">
+                    <img src="images/1f.png" alt="Период покоя">
+                    <p>Период покоя </br>ягод</p>
+                </div>
+                <div class="phase">
+                    <img src="images/1f.png" alt="Период покоя">
+                    <p>Период покоя </br>ягод</p>
+                </div>
             </div>
             <div class="horizontal-line"></div>
-        </div>
+        
         </main>
         <script src="script_p.js"></script>
-
+        
         <footer>
             <p>&copy; 2024 Plant Protection Portal</p>
         </footer>
