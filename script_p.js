@@ -1,5 +1,4 @@
 
-
 const decades = document.querySelectorAll('.decade');
 const tooltip = document.getElementById('tooltip');
 
@@ -46,6 +45,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Навигация для выбора культуры
+function navigateToPlan(crop) {
+    if (crop === "grape") {
+        window.location.href = "plan.html";
+    } else if (crop === "wheat") {
+        window.location.href = "wheat_plan.html";
+    } else if (crop === "corn") {
+        window.location.href = "corn_plan.html";
+    }
+}
+
+// Инициализация данных при загрузке страницы Plan
+window.onload = async function() {
+    try {
+        // Получаем и обновляем текущие данные о погоде
+        const currentWeather = await fetchCurrentWeather();
+        updateCurrentWeather(currentWeather);
+
+        // Получаем и обновляем прогноз погоды
+        const weatherForecast = await fetchWeatherForecast();
+        updateWeatherForecast(weatherForecast);
+    } catch (error) {
+        console.error('Ошибка при получении данных:', error);
+    }
+};
 
 
 function togglePlan(planId) {

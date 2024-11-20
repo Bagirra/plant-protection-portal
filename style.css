@@ -53,271 +53,6 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Шкала периода обработки */
-.timeline {
-    position: relative;
-    height: 30px;
-    background: linear-gradient(to right, #c6e1c3 0%, #94e797 100%);
-    margin-bottom: 20px;
-    border-radius: 15px;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #009f5d;
-    transform: translateY(-50%);
-}
-
-.timeline-labels {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 0 5px;
-    color: #333;
-    font-weight: bold;
-    font-size: 10px; /* Default size */
-}
-
-/* Стили для кликабельных элементов */
-.action-items {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    gap: 5px; /* Minimal spacing between items */
-    margin-bottom: 10px;
-}
-
-.action-item {
-    text-align: center;
-    cursor: pointer;
-    flex: 1; /* Distribute evenly */
-}
-
-.action-item h4 {
-    margin: 2px 0; /* Minimal spacing between text and image */
-    font-size: 12px; /* Default size */
-    color: #009f5d;
-}
-
-.action-item img {
-    width: 40px;
-    height: 40px; /* Smaller images by default */
-    margin-bottom: 2px; /* Minimal spacing */
-}
-
-/* Фазы винограда */
-.phases {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    flex-wrap: nowrap; /* Keep images in a horizontal row */
-}
-
-.phase {
-    text-align: center;
-    flex: 1; /* Equal width */
-    margin: 0 1px; /* Minimal horizontal spacing */
-}
-
-.phase img {
-    width: 35px;
-    height: 35px;
-    margin-bottom: 1px; /* Minimal space between image and text */
-}
-
-.phase p {
-    font-size: 7px; /* Smaller text */
-    margin-top: 0;
-    margin-bottom: 1px;
-}
-
-/* Фон для фаз винограда */
-.phases-background {
-    background-color: #e0e0e0;
-    padding: 5px 0; /* Уменьшенная высота фона */
-    margin-top: 10px;
-    position: relative;
-}
-
-/* Фазы винограда */
-.phases {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 10px;
-}
-
-.phase {
-    text-align: center;
-    flex-grow: 1;
-    margin: 0 5px;
-}
-
-.phase img {
-    width: 30px; /* Уменьшенный размер изображения */
-    height: 30px;
-    margin-bottom: 5px;
-}
-
-/* Горизонтальная линия */
-.horizontal-line {
-    position: absolute;
-    bottom: 5px; /* Поднятая линия ближе к изображениям */
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #009f5d;
-}
-
-/* Вертикальные линии */
-.vertical-line {
-    position: absolute;
-    width: 2px;
-    height: 10px; /* Уменьшенная высота вертикальных линий */
-    background-color: #009f5d;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.phase:first-child .vertical-line {
-    display: none;
-}
-
-.phase:not(:first-child):before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: -1px;
-    width: 2px;
-    background-color: #009f5d;
-    height: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-/* Фон для удобрений */
-.fertilizer-background {
-    background-color: #f7f7f7;
-    padding: 10px 0;
-    margin-top: 20px;
-    position: relative;
-}
-
-/* Контейнер удобрений */
-.fertilizer-phases {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 10px;
-}
-
-/* Стили для каждого удобрения */
-.fertilizer {
-    text-align: center;
-    flex-grow: 1;
-    margin: 0 5px;
-}
-
-.fertilizer img {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 5px;
-}
-
-.fertilizer p {
-    font-size: 10px;
-    margin: 0;
-    color: #555;
-}
-
-/* Горизонтальная линия */
-.fertilizer-background .horizontal-line {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #007b3d;
-}
-/* Стиль для интерактивной линии */
-.interactive-line {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f0f0f0;
-    border: 2px solid #009f5d;
-    border-radius: 10px;
-    padding: 5px 10px;
-    margin: 20px 0;
-    position: relative;
-    height: 40px;
-}
-
-/* Элемент декады */
-.decade {
-    flex: 1;
-    text-align: center;
-    cursor: pointer;
-    padding: 5px 0;
-    border-right: 1px solid #ddd;
-    font-size: 12px;
-    color: #555;
-    position: relative;
-}
-
-.decade:last-child {
-    border-right: none;
-}
-
-.decade:hover {
-    background-color: #d0f0d0;
-    color: #007b3d;
-    font-weight: bold;
-}
-
-/* Всплывающая подсказка */
-.tooltip {
-    position: absolute;
-    background-color: #fff;
-    color: #333;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 12px;
-    display: none;
-    z-index: 10;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-/* Стили для текущей декады */
-.current-decade {
-    background-color: #6bcf6f;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 5px;
-}
-/* Вертикальная линия между месяцами */
-.month-divider {
-    position: relative;
-}
-
-.month-divider::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: #009f5d;
-    transform: translateX(-50%);
-}
-
-
 /* Стили для таблицы */
 table {
     width: 100%;
@@ -690,32 +425,89 @@ a {
     font-weight: bold;
     font-size: 8px; /* Smaller font size */
 }
-
 /* Стили для кликабельных элементов */
 .action-items {
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap; /* Prevent wrapping */
-    gap: 2px; /* Minimal gap */
-    margin-bottom: 5px; /* Reduced margin */
+    gap: 5px; /* Minimal spacing between items */
+    margin-bottom: 10px;
 }
 
 .action-item {
     text-align: center;
     cursor: pointer;
-    flex: 1; /* Equal width for all items */
+    flex: 1; /* Distribute evenly */
 }
 
 .action-item h4 {
-    margin: 1px 0; /* Minimal spacing */
-    font-size: 10px; /* Smaller font */
+    margin: 2px 0; /* Minimal spacing between text and image */
+    font-size: 12px; /* Default size */
     color: #009f5d;
 }
 
 .action-item img {
-    width: 30px; /* Smaller image size */
-    height: 30px;
-    margin-bottom: 1px; /* Minimal spacing below image */
+    width: 40px;
+    height: 40px; /* Smaller images by default */
+    margin-bottom: 2px; /* Minimal spacing */
+    
+}
+/* Элемент декады */
+.decade {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 0;
+    border-right: 1px solid #ddd;
+    font-size: 12px;
+    color: #555;
+    position: relative;
+}
+
+.decade:last-child {
+    border-right: none;
+}
+
+.decade:hover {
+    background-color: #d0f0d0;
+    color: #007b3d;
+    font-weight: bold;
+}
+
+/* Всплывающая подсказка */
+.tooltip {
+    position: absolute;
+    background-color: #fff;
+    color: #333;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+    display: none;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* Стили для текущей декады */
+.current-decade {
+    background-color: #6bcf6f;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+}
+/* Вертикальная линия между месяцами */
+.month-divider {
+    position: relative;
+}
+
+.month-divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #009f5d;
+    transform: translateX(-50%);
 }
 
 /* Фазы винограда */
@@ -747,31 +539,93 @@ a {
 /* Фон для фаз винограда */
 .phases-background {
     background-color: #e0e0e0;
-    padding: 3px 0; /* Compact padding */
-    margin-top: 5px; /* Reduced margin */
+    padding: 5px 0; /* Уменьшенная высота фона */
+    margin-top: 10px;
     position: relative;
 }
 
 /* Горизонтальная линия */
 .horizontal-line {
     position: absolute;
-    bottom: 3px; /* Close to the phases */
+    bottom: 5px; /* Поднятая линия ближе к изображениям */
     left: 0;
     width: 100%;
-    height: 1px; /* Thinner line */
+    height: 2px;
     background-color: #009f5d;
 }
 
-/* Удаление вертикальных линий */
+/* Вертикальные линии */
 .vertical-line {
+    position: absolute;
+    width: 2px;
+    height: 10px; /*  высота вертикальных линий */
+    background-color: #009f5d;
+    top: 50%;
+    transform: translateY(-50%);
     display: none;
 }
-/* Активное состояние */
-.active-decade {
-    background-color: #ffa726; /* Цвет при активации */
-    color: #fff;
-    font-weight: bold;
-    border: 2px solid #ff9800;
+.phase:first-child .vertical-line {
+    display: none;
+}
+
+.phase:not(:first-child):before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -1px;
+    width: 2px;
+    background-color: #009f5d;
+    height: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* Стиль для интерактивной линии */
+.interactive-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    border: 2px solid #009f5d;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 20px 0;
+    position: relative;
+    height: 40px;
+}
+
+/* Фон для удобрений */
+.fertilizer-background {
+    background-color: #f7f7f7;
+    padding: 10px 0;
+    margin-top: 20px;
+    position: relative;
+}
+
+/* Контейнер удобрений */
+.fertilizer-phases {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+}
+
+/* Стили для каждого удобрения */
+.fertilizer {
+    text-align: center;
+    flex-grow: 1;
+    margin: 0 5px;
+}
+
+.fertilizer img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.fertilizer p {
+    font-size: 10px;
+    margin: 0;
+    color: #555;
 }
 
 /* Адаптация для планшетов */

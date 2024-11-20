@@ -87,21 +87,3 @@ window.onload = async function() {
 };
 
 
-function togglePlan(planId) {
-    const planContent = document.getElementById(planId);
-    if (planContent.style.display === "none" || planContent.style.display === "") {
-        planContent.style.display = "block";
-    } else {
-        planContent.style.display = "none";
-    }
-}
-
-function showDetails(detailId) {
-    const detailContent = document.getElementById(detailId);
-    if (detailContent.classList.contains("hidden")) {
-        detailContent.classList.remove("hidden");
-    } else {
-        detailContent.classList.add("hidden");
-    }
-}
-
