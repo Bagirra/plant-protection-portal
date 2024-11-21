@@ -53,6 +53,10 @@ h2 {
     margin-bottom: 20px;
 }
 
+h1 {
+    font-size: 24px;
+}
+
 /* Стили для таблицы */
 table {
     width: 100%;
@@ -119,19 +123,7 @@ tr:hover {
 .button:hover {
     background-color: #45a049;
 }
-
-/* Стили для футера */
-footer {
-    text-align: center;
-    background-color: #94e797;
-    color: white;
-    padding: 10px 0;
-    margin-top: 40px;
-}
-h1 {
-    font-size: 24px;
-}
-
+/* Погода index.html */
 .weather-section {
     display: flex;
     justify-content: center;
@@ -160,7 +152,7 @@ h1 {
     color: #d9873a;
 }
 
-/* Секция прогноза */
+/* Секция прогноза index.html */
 #forecast {
     text-align: center;
 }
@@ -184,7 +176,7 @@ h1 {
 }
 
 .forecast-item img {
-    width: 40px; /* Уменьшенный размер иконок для компактного вида */
+    width: 40px; 
     height: 40px;
     margin-bottom: 5px;
 }
@@ -197,9 +189,10 @@ h1 {
 
 .forecast-item p {
     margin: 3px 0;
-    font-size: 12px; /* Меньший шрифт для текста */
+    font-size: 12px;
     color: #666;
 }
+ /* news.html */
 .news-section {
     display: flex;
     flex-wrap: wrap;
@@ -257,7 +250,7 @@ li {
     position: relative;
 }
 
-/* Стили для культур */
+/* Стили для культур pests.html */
 .culture-item {
     cursor: pointer;
     padding: 10px;
@@ -320,38 +313,6 @@ a {
     margin-bottom: 10px;
 }
 
-.pest-description img {
-    display: inline-block;
-    width: 30%;
-    margin: 10px;
-    border-radius: 5px;
-}
-
-.pest-description .image-gallery {
-    display: flex;
-    justify-content: space-between;
-}
-/* Кнопка для закрытия */
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #139619;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    z-index: 1001;
-    transition: background-color 0.3s ease;
-}
-
-.close-btn:hover {
-    background-color: #139619;
-}
-
-/* Дополнительные изменения для описания */
 .pest-description {
     display: none;
     position: fixed;
@@ -375,11 +336,6 @@ a {
     border-radius: 5px;
 }
 
-/* Изменение курсора на кликающую руку при наведении на закрытые блоки */
-.pest-item h3, .pest-item img {
-    cursor: pointer;
-}
-
 .pest-description .image-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Автоматическое количество колонок */
@@ -392,6 +348,29 @@ a {
     height: 200px; /* Определённая высота */
     object-fit: cover; /* Изображения сохраняют пропорции и обрезаются по необходимости */
     border-radius: 5px;
+}
+/* Кнопка для закрытия */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #139619;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1001;
+    transition: background-color 0.3s ease;
+}
+
+.close-btn:hover {
+    background-color: #139619;
+}
+/* Изменение курсора на кликающую руку при наведении на закрытые блоки */
+.pest-item h3, .pest-item img {
+    cursor: pointer;
 }
 /* Шкала периода обработки */
 .timeline {
@@ -626,6 +605,14 @@ a {
     font-size: 10px;
     margin: 0;
     color: #555;
+}
+/* Стили для футера */
+footer {
+    text-align: center;
+    background-color: #94e797;
+    color: white;
+    padding: 10px 0;
+    margin-top: 40px;
 }
 
 /* Адаптация для планшетов */

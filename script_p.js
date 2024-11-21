@@ -22,18 +22,24 @@ decades.forEach(decade => {
 });
 document.addEventListener('DOMContentLoaded', () => {
     const decades = document.querySelectorAll('.decade');
+    const tooltip = document.getElementById('tooltip');
+
+    // Массив рекомендаций
+    const recommendations = {
+        "Апрель-1": "Рекомендуется обработка против клещей и сорняков.",
+        "Апрель-2": "Проведите обработку от мильдью.",
+        "Апрель-3": "Подготовьте виноград к цветению.",
+        "Ноябрь-3": "Внесите универсальное удобрение.",
+        // Добавьте рекомендации для всех декад
+    };
 
     // Получение текущей даты
     const today = new Date();
     const currentDay = today.getDate();
-    const currentMonthIndex = today.getMonth(); // 0 = Январь, 1 = Февраль, ..., 11 = Декабрь
-
-    // Массив названий месяцев
+    const currentMonthIndex = today.getMonth(); // 0 = Январь, ..., 11 = Декабрь
     const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
-
-    // Определение текущего месяца и декады
     const currentMonth = months[currentMonthIndex];
-    const currentDecade = Math.ceil(currentDay / 10); // 1-я декада: 1-10, 2-я: 11-20, 3-я: 21-31
+    const currentDecade = Math.ceil(currentDay / 10); // Определяем декаду
 
     // Поиск и выделение текущей декады
     decades.forEach(decade => {
@@ -41,8 +47,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const decadeNumber = parseInt(decade.getAttribute('data-decade'), 10);
 
         if (decadeMonth === currentMonth && decadeNumber === currentDecade) {
-            decade.classList.add('current-decade'); // Добавление класса для выделения
+            decade.classList.add('current-decade'); // Выделение текущей декады
+
+            // Добавление рекомендации для текущей декады
+            const recommendationKey = `${decadeMonth}-${decadeNumber}`;
+            if (recommendations[recommendationKey]) {
+                decade.setAttribute('data-tooltip', recommendations[recommendationKey]);
+            }
         }
+    });
+
+    // Обработчики событий
+    decades.forEach(decade => {
+        decade.addEventListener('mouseover', (event) => {
+            const tooltipText = event.target.getAttribute('data-tooltip');
+            if (tooltipText) { // Показывать только если есть рекомендация
+                tooltip.textContent = tooltipText;
+                tooltip.style.display = 'block';
+                tooltip.style.left = `${event.pageX + 10}px`;
+                tooltip.style.top = `${event.pageY + 10}px`;
+            }
+        });
+
+        decade.addEventListener('mouseout', () => {
+            tooltip.style.display = 'none';
+        });
     });
 });
 
