@@ -483,6 +483,23 @@ a {
     font-weight: bold;
     border-radius: 5px;
 }
+
+/* Мигающий красный для декады с уведомлением */
+.blinking {
+    animation: blink 1s infinite;
+}
+
+/* Ключевая анимация мигания */
+@keyframes blink {
+    0%, 50% {
+        background-color: #ff6347; /* Красный цвет */
+        color: white;
+    }
+    25%, 75% {
+        background-color: transparent;
+        color: #333;
+    }
+}
 /* Вертикальная линия между месяцами */
 .month-divider {
     position: relative;

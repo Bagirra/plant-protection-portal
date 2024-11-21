@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (decadeMonth === currentMonth && decadeNumber === currentDecade) {
             decade.classList.add('current-decade'); // Зеленый фон для текущей декады
 
+            // Добавляем класс для мигания красным
+            decade.classList.add('blinking');
+
             // Добавляем рекомендацию в атрибут data-tooltip
             const recommendationKey = `${decadeMonth}-${decadeNumber}`;
             if (recommendations[recommendationKey]) {
@@ -68,6 +71,20 @@ document.addEventListener('DOMContentLoaded', () => {
     decades.forEach(decade => {
         decade.addEventListener('mouseover', (event) => showTooltip(event, event.target));
         decade.addEventListener('mouseout', hideTooltip);
+
+        // Обработка клика по декаде
+        decade.addEventListener('click', (event) => {
+            const element = event.target;
+
+            // Убираем мигание с декады после клика
+            element.classList.remove('blinking');
+
+            // Оставляем зеленый цвет для текущей декады
+            element.classList.add('current-decade');
+
+            // Отображаем уведомление
+            showTooltip(event, element);
+        });
     });
 
     // Подсказка остаётся видимой, если курсор над ней
