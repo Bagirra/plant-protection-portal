@@ -42,6 +42,27 @@ function updateCurrentWeather(data) {
 }
 
 
+
+// Обновляем данные на странице при загрузке
+window.onload = async function () {
+    try {
+        // Получаем и обновляем текущие данные о погоде
+        const currentWeather = await fetchCurrentWeather();
+        updateCurrentWeather(currentWeather);
+
+        // Получаем и обновляем прогноз погоды
+        const weatherForecast = await fetchWeatherForecast();
+        updateWeatherForecast(weatherForecast);
+
+        // Получаем и обновляем почасовой прогноз
+        const hourlyForecast = await fetchHourlyForecast();
+        updateHourlyForecast(hourlyForecast);
+    } catch (error) {
+        console.error('Ошибка при получении данных:', error);
+    }
+};
+
+
 // Функция для отображения прогноза погоды
 function updateWeatherForecast(forecast) {
     const forecastContainer = document.getElementById('forecastContainer');
