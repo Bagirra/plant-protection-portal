@@ -773,20 +773,20 @@ footer {
 /* Адаптация для планшетов */
 @media (max-width: 768px) {
     table {
-        font-size: 12px; /* Smaller text for tables */
+        font-size: 12px; /* Уменьшение текста для таблиц */
     }
 
     th, td {
-        padding: 6px; /* Less padding */
+        padding: 6px; /* Уменьшенные отступы */
     }
 
     #filter {
-        flex-direction: column; /* Stack filters vertically */
-        align-items: center; /* Center align filters */
+        flex-direction: column; /* Сортировка фильтров по вертикали */
+        align-items: center; /* Выравнивание фильтров по центру */
     }
 
     #filter label, #filter input[type="date"] {
-        width: 100%; /* Make each filter element full width */
+        width: 100%; /* Фильтры занимают всю ширину */
         text-align: center;
     }
 }
@@ -794,32 +794,32 @@ footer {
 /* Адаптация для телефонов */
 @media (max-width: 480px) {
     table {
-        font-size: 10px; /* Smaller text for narrow screens */
+        font-size: 10px; /* Уменьшение шрифта для узких экранов */
+        display: block; /* Включаем горизонтальную прокрутку */
+        overflow-x: auto;
     }
 
     th, td {
-        padding: 4px; /* Minimal padding */
+        padding: 4px; /* Минимальные отступы */
     }
 
     th {
-        font-size: 11px; /* Smaller header text */
+        font-size: 11px; /* Уменьшение шрифта заголовков */
     }
 
     #filter {
         flex-direction: column;
-        gap: 5px; /* Minimal gap between elements */
+        gap: 5px; /* Минимальный зазор между элементами */
     }
 
     #filter label, #filter input[type="date"] {
-        width: 100%;
+        width: 100%; /* Фильтры занимают всю ширину */
         text-align: center;
-        font-size: 10px; /* Smaller font for labels and inputs */
+        font-size: 10px; /* Меньший шрифт для меток и полей */
     }
 
     table {
-        display: block; /* Allow horizontal scrolling */
-        overflow-x: auto;
-        white-space: nowrap; /* Prevent text wrapping */
+        white-space: nowrap; /* Предотвращаем перенос текста */
     }
 }
 /* Адаптация для планшетов и телефонов Декады*/
