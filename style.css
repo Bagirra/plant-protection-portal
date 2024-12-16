@@ -59,31 +59,34 @@ h1 {
 
 /* Стили для таблицы */
 table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100%; /* Занимает всю ширину контейнера */
+    border-collapse: collapse;/* Убираем двойные границы */
     margin-top: 20px;
+    table-layout: auto; /* Автоматическая ширина колонок */
 }
 
 table, th, td {
-    border: 1px solid #ddd;
+    border: 1px solid #ddd;/* Границы таблицы */
 }
 
 th, td {
-    padding: 12px;
+    padding: 12px;/* Отступ внутри ячеек */
     text-align: center;
 }
 
 th {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #4CAF50; /* Цвет фона заголовка */
+    color: white; /* Цвет текста заголовка */
+    word-wrap: break-word; /* Перенос слов на новую строку */
+    white-space: normal; /* Разрешить переносы строк */
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f2f2f2;/* Цвет фона для чётных строк */
 }
 
 tr:hover {
-    background-color: #ddd;
+    background-color: #ddd;/* Цвет при наведении */
 }
 
 /* Стили для фильтрации данных */
@@ -773,53 +776,40 @@ footer {
 /* Адаптация для планшетов */
 @media (max-width: 768px) {
     table {
-        font-size: 12px; /* Уменьшение текста для таблиц */
+        font-size: 12px; /* Уменьшаем размер шрифта для таблицы */
+        margin-top: 15px; /* Сокращаем верхний отступ */
     }
 
     th, td {
-        padding: 6px; /* Уменьшенные отступы */
+        padding: 8px; /* Уменьшаем отступы внутри ячеек */
     }
 
-    #filter {
-        flex-direction: column; /* Сортировка фильтров по вертикали */
-        align-items: center; /* Выравнивание фильтров по центру */
-    }
-
-    #filter label, #filter input[type="date"] {
-        width: 100%; /* Фильтры занимают всю ширину */
-        text-align: center;
+    th {
+        font-size: 13px; /* Уменьшаем шрифт заголовков */
     }
 }
 
 /* Адаптация для телефонов */
 @media (max-width: 480px) {
     table {
-        font-size: 10px; /* Уменьшение шрифта для узких экранов */
+        font-size: 10px; /* Ещё больше уменьшаем шрифт */
+        margin-top: 10px; /* Минимальный отступ сверху */
         display: block; /* Включаем горизонтальную прокрутку */
         overflow-x: auto;
     }
 
     th, td {
-        padding: 4px; /* Минимальные отступы */
+        padding: 6px; /* Минимальные отступы внутри ячеек */
     }
 
     th {
-        font-size: 11px; /* Уменьшение шрифта заголовков */
+        font-size: 11px; /* Ещё меньше шрифт заголовков */
+        word-wrap: break-word; /* Перенос слов */
+        white-space: normal; /* Разрешаем перенос строк */
     }
 
-    #filter {
-        flex-direction: column;
-        gap: 5px; /* Минимальный зазор между элементами */
-    }
-
-    #filter label, #filter input[type="date"] {
-        width: 100%; /* Фильтры занимают всю ширину */
-        text-align: center;
-        font-size: 10px; /* Меньший шрифт для меток и полей */
-    }
-
-    table {
-        white-space: nowrap; /* Предотвращаем перенос текста */
+    table, th, td {
+        white-space: normal; /* Разрешаем перенос строк */
     }
 }
 /* Адаптация для планшетов и телефонов Декады*/
