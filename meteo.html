@@ -24,7 +24,7 @@
         <button id="showChartButton" class="button">Показать график</button>
         <canvas id="meteoChart" width="400" height="200" style="display: none;"></canvas>
         
-        <h2>Данные с метеостанции Тараклия</h2>
+        <h2>Данные с метеостанции Тараклия </h2>
         <table id="meteoTable">
             <thead>
                 <tr>
@@ -45,11 +45,18 @@
             </tbody>
         </table>
 
-        <h2>Выбор даты для отображения данных</h2>
-        <label for="date">Выберите дату:</label>
-        <input type="date" id="date">
+        <h2>Выбор даты для отображения фактических данных </br>(интервал дат не более месяца)</h2>
+        <form id="dateRangeForm">
+            <label for="startDate">Начальная дата:</label>
+            <input type="date" id="startDate" required>
+            
+            <label for="endDate">Конечная дата:</label>
+            <input type="date" id="endDate" required>
+            
+            <button type="submit" class="button">Показать данные</button>
+        </form>
     </main>
-
+    
     <footer>
         <p>&copy; 2024 Plant Protection Portal</p>
     </footer>
