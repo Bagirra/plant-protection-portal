@@ -46,10 +46,11 @@ function updateTable(data) {
                 <td>${Math.round(row.metric.tempHigh)} °C</td>
                 <td>${Math.round(row.metric.tempLow)} °C</td>
                 <td>${Math.round(row.metric.tempAvg)} °C</td>
-                <td>${Math.round(row.metric.windspeedAvg)} км/ч</td>
-                <td>${Math.round(row.metric.dewptHigh)} °C</td>
                 <td>${row.humidityAvg !== undefined ? Math.round(row.humidityAvg) : '—'} %</td>
                 <td>${(row.metric.precipTotal || 0).toFixed(1)} мм</td>
+                <td>${Math.round(row.metric.windspeedAvg)} км/ч</td>
+                <td>${Math.round(row.metric.dewptHigh)} °C</td>
+                
             </tr> 
         `;
 
