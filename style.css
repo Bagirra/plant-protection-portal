@@ -579,7 +579,55 @@ a {
         transform: rotate(-45deg) translate(5px, -5px);
     }
 }
+/* Медиа-запрос для планшетов */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .menu-toggle {
+        display: flex; /* Показываем гамбургер-меню */
+    }
 
+    .nav-links {
+        display: none; /* Меню скрыто по умолчанию */
+        flex-direction: column; /* Вертикальная ориентация */
+        background-color: #94e797d8;
+        position: fixed; /* Фиксированное положение */
+        top: 0;
+        left: 0; /* Меню выравнено по левому краю */
+        width: 100%; /* Меню на всю ширину экрана */
+        height: 100%; /* Меню на всю высоту экрана */
+        padding: 30px; /* Дополнительные отступы для удобства */
+        z-index: 999; /* Поверх всех элементов */
+        align-items: flex-start; /* Текст выравнен по левому краю */
+        font-size: 40px; /* Немного меньший шрифт для планшетов */
+        justify-content: flex-start; /* Элементы выравниваются по верхней части экрана */
+    }
+
+    .nav-links.active {
+        display: flex; /* Показываем меню при активации */
+    }
+
+    .nav-links li {
+        margin: 15px 0; /* Большие отступы между пунктами меню */
+        padding: 0 20px;
+    }
+
+    .nav-links li a {
+        text-align: left; /* Текст выравнен по левому краю */
+        display: block;
+        padding: 10px 0;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
 
 /* Ключевая анимация мигания */
 @keyframes blink {
