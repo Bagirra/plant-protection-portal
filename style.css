@@ -492,6 +492,94 @@ a {
 .blinking {
     animation: blink 1s infinite;
 }
+/* Гамбургер-меню */
+.menu-toggle {
+    display: none; /* По умолчанию скрыто */
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.menu-toggle span {
+    background-color: rgba(81, 158, 45, 0.856);
+    height: 3px;
+    width: 30px;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+/* Стили для навигации */
+.nav-links {
+    display: flex;
+    right: 10; /* Выровнено по правому краю */     
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links li a {
+    font-size: 18px;
+    text-align: left;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Показываем гамбургер-меню */
+    }
+
+    .nav-links {
+        display: none; /* Скрываем меню по умолчанию */
+        flex-direction: column; /* Вертикальная ориентация */
+        background-color: #94e797d8;
+        position: fixed; /* Фиксированное положение */
+        top: 0;
+        left: 0; /* Выравнивание по левому краю */
+        width: 100%; /* Меню на всю ширину экрана */
+        height: 100%; /* Меню на всю высоту экрана */
+        padding: 20px; /* Отступы */
+        z-index: 999; /* Поверх всех элементов */
+        align-items: flex-start; /* Элементы выравнены по левой стороне */
+        font-size: 50px; /* Размер текста */
+        justify-content: flex-start; /* Элементы выравниваются к верхней части экрана */
+
+    }
+    
+    .nav-links.active {
+        display: flex; /* Показываем меню при активации */
+       
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        padding: 0 15px;
+        
+    }
+
+    .nav-links li a{
+        text-align: left;
+        display: block;
+        padding: 10px;
+    } 
+    
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
 
 /* Ключевая анимация мигания */
 @keyframes blink {

@@ -15,9 +15,14 @@
     <div class="content-wrapper">
         <header>
             <h2>МОЛДОВА ЮГ</h2>
+            <!-- Кнопка гамбургер-меню -->
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <nav>
-                <ul id="navMenu">
-                    <li id="homeNav"><a href="index.html">Главная</a></li>
+                <ul id="navMenu" class="nav-links">
                     <li><a href="pests.html">Вредители и Болезни</a></li>
                     <li><a href="news.html">Новости</a></li>
                     <li><a href="meteo.html">Данные метеостанции</a></li>
@@ -134,6 +139,16 @@
                 if (logoutNav) logoutNav.remove();
             }
         });
-    </script>      
+    
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        // Обработчик клика по гамбургер-меню
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active'); // Добавляем/убираем класс active
+            menuToggle.classList.toggle('active');
+        });
+    </script>
+    
 </body>
 </html>
