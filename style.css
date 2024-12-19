@@ -562,6 +562,7 @@ a {
     }
 
     .nav-links li a{
+        font-size: 28px; /* Увеличенный шрифт для планшетов */
         text-align: left;
         display: block;
         padding: 10px;
