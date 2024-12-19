@@ -8,17 +8,24 @@
     <script src="js/loadData.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Plant Protection Portal</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="pests.html">Вредители и Болезни</a></li>
-                
-                
-            </ul>
-        </nav>
-    </header>
+    <div class="content-wrapper">
+        <header>
+            <h2>МОЛДОВА ЮГ</h2>
+            <!-- Кнопка гамбургер-меню -->
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul id="navMenu" class="nav-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="meteo.html">Данные метеостанции</a></li>
+                    
+                </ul>
+            </nav>
+        </header>
     <main>
         <h2>Каталог культур</h2>
         <div id="content">
@@ -68,6 +75,15 @@
                     pestList.style.display = "block";
                 }
             });
+        });
+
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        // Обработчик клика по гамбургер-меню
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active'); // Добавляем/убираем класс active
+            menuToggle.classList.toggle('active');
         });
     </script>
     

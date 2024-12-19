@@ -8,17 +8,24 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Метео данные Taraclia</h1>
-        <nav>
-            <ul>
+    <div class="content-wrapper">
+        <header>
+            <h2>МОЛДОВА ЮГ</h2>
+            <!-- Кнопка гамбургер-меню -->
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul id="navMenu" class="nav-links">
                 <li><a href="index.html">Главная</a></li>
-                <li><a href="meteo.html">Данные метеостанци</a></li>
                 <li><a href="news.html">Новости</a></li>
-            </ul>
-        </nav>
-    </header>
-
+                <li><a href="pests.html">Вредители и Болезни</a></li>
+                </ul>
+            </nav>
+        </header>
+   
     <main>
         <!--<h2>График температуры и осадков</h2>
         <button id="showChartButton" class="button">Показать график</button>
@@ -63,7 +70,16 @@
     </footer>
 
     <script src="script_m.js"></script>
-    
+    <script>
+         const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        // Обработчик клика по гамбургер-меню
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active'); // Добавляем/убираем класс active
+            menuToggle.classList.toggle('active');
+        });
+    </script>
     
 </body>
 </html>
