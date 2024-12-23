@@ -482,7 +482,7 @@ a {
 }
 /* Стили для текущей декады */
 .current-decade {
-    background-color: #6bcf6f;
+    background-color: #6bcf6e;
     color: #fff;
     font-weight: bold;
     border-radius: 5px;
@@ -504,7 +504,7 @@ a {
 }
 
 .menu-toggle span {
-    background-color: rgba(81, 158, 45, 0.856);
+    background-color: rgb(81, 158, 45);
     height: 3px;
     width: 30px;
     margin: 4px 0;
@@ -536,7 +536,7 @@ a {
     .nav-links {
         display: none; /* Скрываем меню по умолчанию */
         flex-direction: column; /* Вертикальная ориентация */
-        background-color: #94e797d8;
+        background-color: #94e797fb;
         position: fixed; /* Фиксированное положение */
         top: 0;
         left: 0; /* Выравнивание по левому краю */
@@ -562,7 +562,6 @@ a {
     }
 
     .nav-links li a{
-        font-size: 28px; /* Увеличенный шрифт для планшетов */
         text-align: left;
         display: block;
         padding: 10px;
@@ -589,7 +588,7 @@ a {
     .nav-links {
         display: none; /* Меню скрыто по умолчанию */
         flex-direction: column; /* Вертикальная ориентация */
-        background-color: #94e797d8;
+        background-color: #94e797f5;
         position: fixed; /* Фиксированное положение */
         top: 0;
         left: 0; /* Меню выравнено по левому краю */
@@ -598,7 +597,7 @@ a {
         padding: 30px; /* Дополнительные отступы для удобства */
         z-index: 999; /* Поверх всех элементов */
         align-items: flex-start; /* Текст выравнен по левому краю */
-        font-size: 40px; /* Немного меньший шрифт для планшетов */
+        font-size: 40px; /*  шрифт для планшетов */
         justify-content: flex-start; /* Элементы выравниваются по верхней части экрана */
     }
 
