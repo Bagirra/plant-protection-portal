@@ -26,41 +26,28 @@
                 </ul>
             </nav>
         </header>
-    <main>
-        <h2>Каталог культур</h2>
-        <div id="content">
-            <h5>Культуры с описанием болезней и вредителей будут добавлены в ближайшее время. </h5>
-            <ul>
-                <!-- Виноград -->
-                <li>
+        <main>
+            <h2>Каталог культур</h2>
+            <div id="content">
+                <h5>Культуры с описанием болезней и вредителей будут добавлены в ближайшее время.</h5>
+                <div class="culture">
                     <div class="culture-item">Виноград</div>
-                    <ul class="pest-list">
+                    <ul class="pest-list" style="display: none;">
                         <li class="pest-item"><a href="vitis/daunator.html">Вредители</a></li>
                         <li class="pest-item"><a href="vitis/bolii.html">Болезни</a></li>
                     </ul>
-                </li>
-                <!-- Пшеница -->
-                <li>
+                </div>
+        
+                <div class="culture">
                     <div class="culture-item">Пшеница</div>
-                    <ul class="pest-list">
+                    <ul class="pest-list" style="display: none;">
                         <li class="pest-item"><a href="griu/daunator.html">Вредители</a></li>
                         <li class="pest-item"><a href="griu/bolii.html">Болезни</a></li>
                     </ul>
-                </li>
-                
-                
-                <!-- Рапс 
-                <li>
-                    <div class="culture-item">Рапс</div>
-                    <ul class="pest-list">
-                        <li class="pest-item"><a href="rapita/daunator.html">Вредители</a></li>
-                        <li class="pest-item"><a href="rapita/bolii.html">Болезни</a></li>
-                    </ul>
-                </li>-->
-            </ul>
-        </div>
-    </main>
-    
+                </div>
+            </div>
+        </main>
+        
     <footer>
         <p>&copy; 2024 Plant Protection Portal</p>
     </footer>
@@ -68,24 +55,25 @@
         // Функция для отображения или скрытия списка вредителей и болезней
         document.querySelectorAll('.culture-item').forEach(cultureItem => {
             cultureItem.addEventListener('click', function () {
-                const pestList = this.nextElementSibling;
+                const pestList = this.nextElementSibling; // Список вредителей и болезней
                 if (pestList.style.display === "block") {
-                    pestList.style.display = "none";
+                    pestList.style.display = "none"; // Скрыть список
                 } else {
-                    pestList.style.display = "block";
+                    pestList.style.display = "block"; // Показать список
                 }
             });
         });
-
+    
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
-
+    
         // Обработчик клика по гамбургер-меню
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active'); // Добавляем/убираем класс active
+        menuToggle?.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
             menuToggle.classList.toggle('active');
         });
     </script>
+    
     
 </body>
 </html>

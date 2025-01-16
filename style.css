@@ -261,6 +261,8 @@ li {
     background-color: #f0f0f0;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .culture-item:hover {
@@ -269,9 +271,13 @@ li {
 
 /* Скрытый список вредителей и болезней */
 .pest-list {
-    display: none;
+    display: none;/* Скрыть список по умолчанию */
     margin-top: 10px;
     padding-left: 20px;
+}
+
+.pest-list li {
+    list-style: none; /* Убираем маркеры списка, если нужно */
 }
 
 /* Стили для вредителей и болезней */
@@ -281,6 +287,14 @@ li {
     border-radius: 3px;
     margin-bottom: 5px;
     transition: background-color 0.3s ease;
+}
+.pest-item a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    display: inline-block; /* Увеличение кликабельной области */
+    width: 100%; /* Кнопка занимает всю ширину */
+    text-align: center;
 }
 
 .pest-item:hover {
@@ -545,7 +559,7 @@ a {
         padding: 20px; /* Отступы */
         z-index: 999; /* Поверх всех элементов */
         align-items: flex-start; /* Элементы выравнены по левой стороне */
-        font-size: 20px; /* Размер текста */
+        font-size: 22px; /* Размер текста */
         justify-content: flex-start; /* Элементы выравниваются к верхней части экрана */
 
     }
