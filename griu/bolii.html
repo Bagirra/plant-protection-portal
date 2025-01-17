@@ -9,24 +9,38 @@
 </head>
 <body>
     <header>
-        <h1>Plant Protection Portal</h1>
+        <h1>Защита растений</h1>
         <nav>
             <ul>
                 <li><a href="../index.html">Главная</a></li>
-                <li><a href="../pests.html">Вредители и Болезни</a></li>
-                <li><a href="../meteo.html">Экспорт</a></li>
-                <li><a href="../about.html">О Нас</a></li>
+                <li><a href="../meteo.html">Экспорт</a></li>  
             </ul>
         </nav>
+        <a href="../pests.html">Вернуться к списку культур</a></li>
     </header>
     <main>
         <h2>Болезни Пшеницы</h2>
-        <div class="disease-list">
-            <div class="disease-item">
+        <div class="pest-list">
+            <div class="pest-item">
                 <h3>Снежная плесень (Fusarium mivale)</h3>
-                <img src="images/fusarium_mivale.jpg" alt="Снежная плесень">
-                <p>Описание болезни: краткое описание симптомов и методов борьбы.</p>
+                <img src="../images/fuz_miv.jpg" alt="Снежная плесень">
+                <div class="pest-description">
+                    <button class="close-btn">Закрыть</button> 
+                    <p><strong>Описание:</strong></p>
+                    <p>Снежная плесень (Fusarium mivale) - возбудитель снежной плесени. Активно развивается при низких температурах воздуха от 1 до 10 градусов Цельсия.Болезнь проявляется после таяния снега. Инфекция сохраняется на растительных остатках в почве. В течение вегетации возбудитель распространяется конидиями воздушно-капельным путем.</p>
+                    <p><strong>Стадии развития:</strong></p><p>Развитие снежной плесени происходит ранней весной: возбудитель заболевания сначала проходит фазу конидиального спороношения, а затем формируются сумкоспоры, располагающиеся в нижней части стебля. На этой стадии грибок разносится на соседние растения дождем, ветром и благодаря насекомым.</p> 
+                    <p><strong>Повреждения:</strong></p><p>>На загнивших листьях, узле кущения нежный паутинистый налет белого или розового цвета. Спороношение имеет вид мелких бледно-розовых или оранжевых подушечек у основания стеблей. На поверхности отмерших листьев образуются бледно-розовые или оранжевые шарообразные плодовые тела диаметром 0,3 мм. Листья часто склеиваются и загнивают. Узел кущения разрушается.</p>
+                    <p><strong>Меры борьбы:</strong></p><p>Обработка семян перед посевом протравителем разрешённым на культуре.</p>
+                    <div class="image-gallery">
+                        <img src="../images/fuz_miv.jpg" alt="Снежная плесень">
+                        <img src="../images/fuz_miv1.jpg" alt="Снежная плесень">
+                        <img src="../images/fuz_miv2.jpg" alt="Снежная плесень">
+                    </div>    
+                </div>
             </div>
+
+        </div>    
+        <!--<div class="disease-list">
             <div class="disease-item">
                 <h3>Мучнистая роса (Erysiphie graminis)</h3>
                 <img src="images/erysiphie_graminis.jpg" alt="Мучнистая роса">
@@ -72,10 +86,40 @@
                 <img src="images/fusarium_helminthosporium.jpg" alt="Корневые гнили">
                 <p>Описание болезни: симптомы и меры предосторожности.</p>
             </div>
-            <!-- Добавьте другие болезни аналогично -->
-        </div>
+           
+        </div>-->
     </main>
+    <script>
+        // JavaScript для открытия и закрытия описаний
+        document.querySelectorAll('.pest-item h3, .pest-item img').forEach(item => {
+            item.addEventListener('click', function() {
+            const description = this.parentElement.querySelector('.pest-description');
+            if (description.style.display === "none" || description.style.display === "") {
+                description.style.display = "block";
+            } else {
+                description.style.display = "none";
+            }
+        });
+
+        // Закрытие блока по нажатию на кнопку "Закрыть"
+        document.querySelectorAll('.close-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const description = this.parentElement;
+                description.style.display = 'none';
+            });
+        });
+
+        // Закрытие блока при клике вне области (если нужно)
+        document.querySelectorAll('.pest-description').forEach(desc => {
+            desc.addEventListener('click', function(event) {
+                if (event.target === desc) {
+                    desc.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    </script>
     
-    <footer>
-        <p>&copy; 2024 Plant Protection Portal</p>
-    </footer>
+</body>
+</html>
