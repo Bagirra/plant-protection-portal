@@ -148,63 +148,43 @@
                 <img src="../images/puccinia.jpg" alt="">
                 <div class="pest-description">
                     <button class="close-btn">Закрыть</button> 
-                    <p><strong>Описание:</strong></p><p>Возбудитель Бурой ржавчины -гриб Puccinia triticina - поражает пшеницу, рожь и злаковые сорняки. В течении вегетации возбудитель распространяется урединиоспорами. Зимуетурединомицелий на озимых культурах и злаковых многолетних травах, а также телейтоспоры на растительных остатках. Весной телейтоспоры прорастают и заражают промежуточного хозяина.  </p>
-                    <p><strong>Признаки заболевания:</strong></p><p>
+                     <p><strong>Описание:</strong></p><p>Возбудитель Бурой ржавчины -гриб Puccinia triticina - поражает пшеницу, рожь и злаковые сорняки. Гриб имеет пять различных форм спороношения. В течении вегетации возбудитель распространяется урединиоспорами. Зимует урединомицелий на озимых культурах и злаковых многолетних травах, а также телейтоспоры на растительных остатках. Весной телейтоспоры прорастают и заражают промежуточного хозяина. Эцидиоспоры  производят первичное заражение злаков.  </p>
+                    <p><strong>Признаки заболевания:</strong></p>На пшенице и ячмене бурая ржавчина поражает стебли и листовые влагалища, на них сначала образуются бурые округлые подушечки, разбросанные в беспорядке.Позднее на стареющих листьях, чаще с нижней стороны, появляются телейтопустулы в виде чёрных юлестящих подушечек, прикрытых эпидермисом листа. Сильно поражённые растения озимой пшеницы, зимуют плохо и дают слабый урожай.<p>
                     </br></p>
-                    <p><strong>Меры борьбы:</strong></p><p> Протравливание семян перед посевом системными фунгицидами.</p>
+                    <p><strong>Меры борьбы:</strong></p><p> Соблюдение севооборота. Уничтожение дикорастущих злаков и промежуточных хозяев.</br>В осенний период на ранних посевах  озимой пшеницы, особенно засеянной  после стерни, в благоприятных погодных условиях(температура воздуха в пределах 15-20 С и влажность более 60%), возможно заражение бурой ржавчиной. Обработки фунгицидом необходимо проводить при выявлении более 50% заражённых растений с 1-2 пустулами на лист.</br>В весенний период распространение и развитие болезни наблюдается очажно, со слабым поражением растений. В фазе 
+                        трубкования, при выпадении обильных осадков(более 70мм)и температуре 18-20С, интенсивность болезни усилится. На таких участках, при обнаружении более 1-2 пустул на лист, что соответствует 1% и нтенсивности развития, следует провести фунгицидные обработки. При благоприятных условиях, особенно на загущенных посевах по колосовым предшественникам, при интенсивности заражения 5%(2-3 пустулы на лист) обработку следует повторить.</p>
                     <div class="image-gallery">
                         <img src="../images/puccinia1.jpg" alt="">
                         <img src="../images/puccinia2.jpg" alt="">
                         <img src="../images/puccinia3.jpg" alt="">
-                        <img src="../images/puccinia4.jpg" alt="">
+                        <img src="../images/puccinia.jpg" alt="">
+                    </div>    
+                </div>
+            </div>
+            <div class="pest-item">
+                <h3>Головневые болезни зерновых колосовых (Ustilago tritici, Tilletia tritici)</h3>
+                <img src="../images/ustilago.jpg" alt="">
+                <div class="pest-description">
+                    <button class="close-btn">Закрыть</button> 
+                     <p><strong>Описание:</strong></p><p>Возбудитель - гриб Tilletia tritici(облигатный паразит). Основной тип поражения, который они  вызывает на пшенице и ячмене - разрушение тканей с образованием сажистой массы, состоящей из хламидиоспор </p>
+                    <p><strong>Признаки заболевания:</strong></p>Разрушает все части колосков. От колоса остаётся неразрушенным только стержень.<p>
+                    </br></p>
+                    <p><strong>Меры борьбы:</strong></p><p> </p>
+                    <div class="image-gallery">
+                        <img src="../images/ustilago1.jpg" alt="">
+                        <img src="../images/ustilago2.jpg" alt="">
+                        <img src="../images/ustilago3.jpg" alt="">
+                        <img src="../images/ustilago4.jpg" alt="">
                     </div>    
                 </div>
             </div>
 
 
+
         </div>    
-        <!--<div class="disease-list">
-            
-            
-            <div class="disease-item">
-                <h3>Головневые болезни зерновых колосовых (Ustilago tritici, Tilletia tritici)</h3>
-                <img src="images/fusarium_helminthosporium.jpg" alt="Корневые гнили">
-                <p>Описание болезни: симптомы и меры предосторожности.</p>
-            </div>
-           
-        </div>-->
+       
     </main>
-    <script>
-        // JavaScript для открытия и закрытия описаний
-        document.querySelectorAll('.pest-item h3, .pest-item img').forEach(item => {
-            item.addEventListener('click', function() {
-            const description = this.parentElement.querySelector('.pest-description');
-            if (description.style.display === "none" || description.style.display === "") {
-                description.style.display = "block";
-            } else {
-                description.style.display = "none";
-            }
-        });
-
-        // Закрытие блока по нажатию на кнопку "Закрыть"
-        document.querySelectorAll('.close-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const description = this.parentElement;
-                description.style.display = 'none';
-            });
-        });
-
-        // Закрытие блока при клике вне области (если нужно)
-        document.querySelectorAll('.pest-description').forEach(desc => {
-            desc.addEventListener('click', function(event) {
-                if (event.target === desc) {
-                    desc.style.display = 'none';
-                }
-            });
-        });
-    });
-
-    </script>
+    <script src="../script_d_b.js"></script>
     
 </body>
 </html>
