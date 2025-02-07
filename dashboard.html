@@ -35,7 +35,40 @@
                 <option value="corn">Кукуруза</option>
             </select>
         </form>
+        
     </main>
+    <main>
+        
+        <div>
+           
+            <label for="startDate">Начальная дата:</label>
+            <input type="date" id="startDate">
+            
+            <label for="endDate">Конечная дата:</label>
+            <input type="date" id="endDate">
+
+            <button id="calculatePrecipitationButton">Рассчитать осадки</button>
+            <p id="precipitationResult"></p>
+
+            <h2>Расчёт суммы эффективных температур</h2> 
+            <label for="baseTempInput">Введите порог температуры (°C):</label>  
+            <input type="number" id="baseTempInput" step="0.1">
+            
+            <button id="calculateSETButton">Рассчитать СЭТ</button>
+            <p id="setResult"></p>
+        </div>
+    </main>
+    <main>
+        <div>
+            <h2>Расчёт суммы активных температур</h2>
+           
+            <label for="thresholdTempInput">Введите базовую температуру(°C) для САТ:</label>
+            <input type="number" id="thresholdTempInput" step="0.1">
+            <button id="calculateSATButton">Рассчитать САТ</button>
+            <p id="satResult"></p>
+        </div> 
+    </main>
+
 
     <div id="planModal" class="modal">
         <div class="modal-content">
@@ -43,12 +76,14 @@
             <div id="planDetails"></div>
         </div>
     </div>
+    
 
     <footer>
         <p>&copy; 2024 Plant Protection Portal</p>
     </footer>
-    <script src="script_p.js"></script> <!-- Подключаем внешний JavaScript файл -->
+    <script src="script_p.js"></script> 
     <script src="script.js"></script> 
+    <script src="script_set.js"></script> 
 </body>
 </html>
 
