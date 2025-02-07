@@ -6,30 +6,36 @@ function formatDate(date) {
     return date.toISOString().split('T')[0].replace(/-/g, '');
 }
 
-// Функция для получения данных за указанный интервал дат
+// Функция для получения данных за указанный интервал дат с разбиением по месяцам
 async function fetchMeteoDataForInterval(startDate, endDate) {
-    const formattedStartDate = formatDate(new Date(startDate));
-    const formattedEndDate = formatDate(new Date(endDate));
+    let start = new Date(startDate);
+    let end = new Date(endDate);
+    let allData = [];
 
-    try {
-        const response = await fetch(
-            `https://api.weather.com/v2/pws/history/daily?stationId=${stationId}&format=json&units=m&startDate=${formattedStartDate}&endDate=${formattedEndDate}&apiKey=${apiKey}`
-        );
+    while (start <= end) {
+        let monthEnd = new Date(start.getFullYear(), start.getMonth() + 1, 0);
+        if (monthEnd > end) monthEnd = end;
 
-        if (!response.ok) {
-            throw new Error(`Ошибка запроса: ${response.status}`);
+        const formattedStartDate = formatDate(start);
+        const formattedEndDate = formatDate(monthEnd);
+
+        try {
+            const response = await fetch(
+                `https://api.weather.com/v2/pws/history/daily?stationId=${stationId}&format=json&units=m&startDate=${formattedStartDate}&endDate=${formattedEndDate}&apiKey=${apiKey}`
+            );
+            const data = await response.json();
+            allData = allData.concat(data.observations || []);
+        } catch (error) {
+            console.error('Ошибка при получении данных:', error);
         }
 
-        const data = await response.json();
-        console.log('API response:', data); // Для отладки
-        return data.observations || [];
-    } catch (error) {
-        console.error('Ошибка:', error);
-        return [];
+        start.setMonth(start.getMonth() + 1);
+        start.setDate(1);
     }
+    return allData;
 }
 
-// Функция для обновления таблицы
+// Функция для обновления таблицы метеоданных
 function updateTable(data) {
     const tableBody = document.querySelector('#meteoTable tbody');
     tableBody.innerHTML = ''; // Очищаем таблицу
@@ -40,8 +46,8 @@ function updateTable(data) {
     }
 
     data.forEach(row => {
-        const newRow = `
-            <tr>
+        const newRow = 
+            `<tr>
                 <td>${row.obsTimeLocal.split(' ')[0]}</td>
                 <td>${Math.round(row.metric.tempHigh)} °C</td>
                 <td>${Math.round(row.metric.tempLow)} °C</td>
@@ -50,15 +56,12 @@ function updateTable(data) {
                 <td>${(row.metric.precipTotal || 0).toFixed(1)} мм</td>
                 <td>${Math.round(row.metric.windspeedAvg)} км/ч</td>
                 <td>${Math.round(row.metric.dewptHigh)} °C</td>
-                
-            </tr> 
-        `;
-
+            </tr>`;
         tableBody.innerHTML += newRow;
     });
 }
 
-// Обработчик формы для выбора интервала дат
+// Обработчик формы для выбора интервала дат и обновления таблицы
 document.getElementById('dateRangeForm').addEventListener('submit', async function (event) {
     event.preventDefault(); // Предотвращаем перезагрузку страницы
 
@@ -71,8 +74,8 @@ document.getElementById('dateRangeForm').addEventListener('submit', async functi
     }
 
     const daysDifference = Math.ceil((new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24));
-    if (daysDifference > 30) {
-        alert('Интервал дат не может превышать 30 дней!');
+    if (daysDifference > 365) { // Ограничение на год, чтобы не перегрузить API
+        alert('Интервал дат не может превышать 1 год!');
         return;
     }
 
@@ -80,7 +83,7 @@ document.getElementById('dateRangeForm').addEventListener('submit', async functi
     updateTable(data);
 });
 
-// Загрузка данных за 10 дней при открытии страницы
+// Загрузка данных за последние 10 дней при открытии страницы
 window.onload = async function () {
     const today = new Date();
     const lastMonth = new Date();
