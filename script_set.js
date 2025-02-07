@@ -6,21 +6,33 @@ function formatDate(date) {
     return date.toISOString().split('T')[0].replace(/-/g, '');
 }
 
-// Функция для получения данных за указанный интервал дат
+// Функция для получения данных за указанный интервал дат с разбиением по месяцам
 async function fetchMeteoDataForInterval(startDate, endDate) {
-    const formattedStartDate = formatDate(new Date(startDate));
-    const formattedEndDate = formatDate(new Date(endDate));
+    let start = new Date(startDate);
+    let end = new Date(endDate);
+    let allData = [];
 
-    try {
-        const response = await fetch(
-            `https://api.weather.com/v2/pws/history/daily?stationId=${stationId}&format=json&units=m&startDate=${formattedStartDate}&endDate=${formattedEndDate}&apiKey=${apiKey}`
-        );
-        const data = await response.json();
-        return data.observations || [];
-    } catch (error) {
-        console.error('Ошибка при получении данных:', error);
-        return [];
+    while (start <= end) {
+        let monthEnd = new Date(start.getFullYear(), start.getMonth() + 1, 0);
+        if (monthEnd > end) monthEnd = end;
+
+        const formattedStartDate = formatDate(start);
+        const formattedEndDate = formatDate(monthEnd);
+
+        try {
+            const response = await fetch(
+                `https://api.weather.com/v2/pws/history/daily?stationId=${stationId}&format=json&units=m&startDate=${formattedStartDate}&endDate=${formattedEndDate}&apiKey=${apiKey}`
+            );
+            const data = await response.json();
+            allData = allData.concat(data.observations || []);
+        } catch (error) {
+            console.error('Ошибка при получении данных:', error);
+        }
+
+        start.setMonth(start.getMonth() + 1);
+        start.setDate(1);
     }
+    return allData;
 }
 
 // Функция для вычисления суммы эффективных температур (СЭТ) по заданному интервалу
