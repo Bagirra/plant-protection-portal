@@ -6,32 +6,43 @@ function formatDate(date) {
     return date.toISOString().split('T')[0].replace(/-/g, '');
 }
 
-// Функция для получения данных за указанный интервал дат с разбиением по месяцам
+// Функция для получения данных за указанный интервал дат
 async function fetchMeteoDataForInterval(startDate, endDate) {
     let start = new Date(startDate);
     let end = new Date(endDate);
     let allData = [];
 
     while (start <= end) {
-        let monthEnd = new Date(start.getFullYear(), start.getMonth() + 1, 0);
-        if (monthEnd > end) monthEnd = end;
+        let nextEnd = new Date(start);
+        nextEnd.setDate(start.getDate() + 30); // Бьем запросы максимум на 30 дней
+        if (nextEnd > end) nextEnd = end;
 
         const formattedStartDate = formatDate(start);
-        const formattedEndDate = formatDate(monthEnd);
+        const formattedEndDate = formatDate(nextEnd);
 
         try {
+            console.log(`Запрос данных с ${formattedStartDate} по ${formattedEndDate}`);
             const response = await fetch(
                 `https://api.weather.com/v2/pws/history/daily?stationId=${stationId}&format=json&units=m&startDate=${formattedStartDate}&endDate=${formattedEndDate}&apiKey=${apiKey}`
             );
+
+            if (!response.ok) {
+                throw new Error(`Ошибка запроса: ${response.status}`);
+            }
+
             const data = await response.json();
+            console.log("API response:", data); // Логируем ответ API
+
             allData = allData.concat(data.observations || []);
         } catch (error) {
             console.error('Ошибка при получении данных:', error);
         }
 
-        start.setMonth(start.getMonth() + 1);
-        start.setDate(1);
+        start.setDate(start.getDate() + 31); // Переход на следующий месяц
     }
+
+    // Сортируем данные по дате
+    allData.sort((a, b) => new Date(a.obsTimeLocal) - new Date(b.obsTimeLocal));
     return allData;
 }
 
@@ -74,7 +85,7 @@ document.getElementById('dateRangeForm').addEventListener('submit', async functi
     }
 
     const daysDifference = Math.ceil((new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24));
-    if (daysDifference > 365) { // Ограничение на год, чтобы не перегрузить API
+    if (daysDifference > 365) { // Ограничение на 1 год
         alert('Интервал дат не может превышать 1 год!');
         return;
     }
@@ -83,12 +94,14 @@ document.getElementById('dateRangeForm').addEventListener('submit', async functi
     updateTable(data);
 });
 
-// Загрузка данных за последние 10 дней при открытии страницы
+// Загружаем данные за последние 10 дней при открытии страницы
 window.onload = async function () {
     const today = new Date();
-    const lastMonth = new Date();
-    lastMonth.setDate(today.getDate() - 10);
+    const tenDaysAgo = new Date();
+    tenDaysAgo.setDate(today.getDate() - 10);
 
-    const data = await fetchMeteoDataForInterval(lastMonth, today);
+    console.log(`Загрузка данных за последние 10 дней: ${formatDate(tenDaysAgo)} - ${formatDate(today)}`);
+
+    const data = await fetchMeteoDataForInterval(tenDaysAgo, today);
     updateTable(data);
 };
