@@ -9,11 +9,13 @@ body {
 
 /* Стили для заголовка */
 header {
-    background-color: #94e797;
+    background-color: #aeebaeea;
     color: white;
     padding: 10px;
     text-align: center;
-    
+    max-width: 1200px;
+    margin: 20px auto;
+    opacity: 0.9; /* Делаем фон полупрозрачным */
 }
 
 /* Стили для навигации */
@@ -132,6 +134,7 @@ tr:hover {
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    
 }
 
 .weather-icon-container {
@@ -147,6 +150,7 @@ tr:hover {
     margin: 0;
     font-size: 18px;
     line-height: 1.5;
+    color:#07882e;
 }
 
 .weather-info #temperature {
@@ -266,7 +270,7 @@ li {
 }
 
 .culture-item:hover {
-    background-color: #d4e157;
+    background-color: #c8ecaf;
 }
 
 /* Скрытый список вредителей и болезней */
@@ -298,7 +302,7 @@ li {
 }
 
 .pest-item:hover {
-    background-color: #aed581;
+    background-color: #a6db6a;
     cursor: pointer;
 }
 
@@ -550,7 +554,9 @@ a {
     .nav-links {
         display: none; /* Скрываем меню по умолчанию */
         flex-direction: column; /* Вертикальная ориентация */
-        background-color: #94e797fb;
+        background: url('images/ecran_t.png.jpg') no-repeat center center / cover;
+        backdrop-filter: blur(5px); /* Эффект размытия */
+        opacity: 0.95; /* Почти непрозрачный */
         position: fixed; /* Фиксированное положение */
         top: 0;
         left: 0; /* Выравнивание по левому краю */
@@ -562,6 +568,11 @@ a {
         font-size: 22px; /* Размер текста */
         justify-content: flex-start; /* Элементы выравниваются к верхней части экрана */
 
+    }
+
+    .weather-section {
+        position: relative;
+        z-index: 0; /* Убираем поверх всех элементов */
     }
     
     .nav-links.active {
@@ -602,7 +613,8 @@ a {
     .nav-links {
         display: none; /* Меню скрыто по умолчанию */
         flex-direction: column; /* Вертикальная ориентация */
-        background-color: #94e797f5;
+        background: url('images/ecran_t.png.jpg') no-repeat center center / cover;
+        backdrop-filter: blur(5px); /* Эффект размытия для полупрозрачности */
         position: fixed; /* Фиксированное положение */
         top: 0;
         left: 0; /* Меню выравнено по левому краю */
@@ -642,6 +654,14 @@ a {
         transform: rotate(-45deg) translate(5px, -5px);
     }
 }
+
+@media (max-width: 1024px) {
+    .nav-links {
+        height: 100vh;
+        overflow-y: scroll; /* Добавляем прокрутку */
+    }
+}
+
 
 /* Ключевая анимация мигания */
 @keyframes blink {
@@ -790,7 +810,7 @@ a {
 /* Стили для футера */
 footer {
     text-align: center;
-    background-color: #94e797;
+    background-color: #779c79;
     color: white;
     padding: 10px 0;
     margin-top: 40px;

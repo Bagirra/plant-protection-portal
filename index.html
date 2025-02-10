@@ -52,32 +52,31 @@
                     <li id="registerNav"><a href="register.html">Регистрация</a></li>
                 </ul>
             </nav>
-        </header>
+        
         <main>
             <h2>Интегрированная Система Защиты Растений</h2>
-        
         </main>
         
-    <header>
-        <h2>Тараклия погода сегодня</h2>
-    </header>
-    <section id="currentWeather" class="weather-section">
-        <div class="weather-icon-container">
-            <img id="weatherIcon" alt="Weather Icon" src="images/sunny.png">
-        </div>
-        <div class="weather-info">
-            <p id="temperature">— °C</p>
-            <p id="humidity">Влажность: — %</p>
-            <p id="windSpeed">Ветер: — км/ч</p>
-            <p id="precipitation">Осадки: — мм</p>
-            <p id="pressure">Давление: — мм рт. ст.</p>
-        </div>
-    </section>
+        
+        
+            <h2>Тараклия погода сегодня</h2>
+        
+            <section id="currentWeather" class="weather-section">
+                <div class="weather-icon-container">
+                    <img id="weatherIcon" alt="Weather Icon" src="images/sunny.png">
+                </div>
+                <div class="weather-info">
+                    <p id="temperature">— °C</p>
+                    <p id="precipitation">Осадки: — мм</p>
+                    <p id="windSpeed">Ветер: — км/ч</p>
+                    <p id="humidity">Влажность: — %</p>
+                    <p id="pressure">Давление: — мм рт. ст.</p>
+                </div>
+            </section>
 
-    <header>
-        <h2>Прогноз на 5 дней</h2>
-    </header>
+        </header>
     <main>
+        <h2>Прогноз на 5 дней</h2>
         <section id="forecast">
             <div id="forecastContainer" class="forecast-section">
                 <!-- Прогноз отображается здесь -->
@@ -98,7 +97,7 @@
         <script src="script.js"></script>
         <script src="script_i.js"></script>
         <footer>
-            <p>&copy; 2024 Plant Protection Portal</p>
+            <p>&copy; 2025 Plant Protection Portal</p>
         </footer>
         
     </div>  
@@ -169,7 +168,50 @@
             menuToggle.classList.toggle('active');
         });
 
-       
+        document.addEventListener("DOMContentLoaded", function () {
+        let startX = 0;
+        let endX = 0;
+
+        document.addEventListener("touchstart", function (event) {
+            startX = event.touches[0].clientX; // Начало свайпа
+        });
+
+        document.addEventListener("touchend", function (event) {
+            endX = event.changedTouches[0].clientX; // Конец свайпа
+
+            let swipeDistance = endX - startX;
+            let swipeThreshold = 50; // Минимальная длина свайпа
+
+            if (swipeDistance > swipeThreshold) {
+                // Свайп вправо → Назад
+                goToPrevPage();
+            } else if (swipeDistance < -swipeThreshold) {
+                // Свайп влево → Вперёд
+                goToNextPage();
+            }
+        });
+
+        function goToPrevPage() {
+            let pages = ["index.html", "news.html", "pests.html", "meteo.html"];
+            let currentPage = window.location.pathname.split("/").pop();
+            let currentIndex = pages.indexOf(currentPage);
+
+            if (currentIndex > 0) {
+                window.location.href = pages[currentIndex - 1];
+            }
+        }
+
+        function goToNextPage() {
+            let pages = ["index.html", "news.html", "pests.html", "meteo.html"];
+            let currentPage = window.location.pathname.split("/").pop();
+            let currentIndex = pages.indexOf(currentPage);
+
+            if (currentIndex < pages.length - 1) {
+                window.location.href = pages[currentIndex + 1];
+            }
+        }
+    });
+        
     </script>
     
 </body>
