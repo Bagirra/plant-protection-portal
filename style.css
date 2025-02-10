@@ -515,7 +515,7 @@ a {
     display: none; /* По умолчанию скрыто */
     flex-direction: column;
     cursor: pointer;
-    position: absolute;
+    position: fixed; /* Фиксированное меню */
     top: 15px;
     right: 20px;
     z-index: 1000;
@@ -533,7 +533,7 @@ a {
 /* Стили для навигации */
 .nav-links {
     display: flex;
-    right: 10; /* Выровнено по правому краю */     
+    right: 10px; /* Исправлено */
 }
 
 .nav-links li {
@@ -543,8 +543,10 @@ a {
 .nav-links li a {
     font-size: 18px;
     text-align: left;
+    font-weight: bold; /* Полужирный */
+    color: white; /* Белый цвет */
+    text-shadow: 2px 2px 4px black; /* Чёрная тень */
 }
-
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 768px) {
     .menu-toggle {
