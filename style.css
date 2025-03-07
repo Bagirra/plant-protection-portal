@@ -201,10 +201,7 @@ tr:hover {
 }
 
  /* news.html */
- p {
-    text-align: justify;
-    margin: 0 20px; /* Отступы слева и справа */
-}
+
 .news-section {
     display: flex;
     flex-wrap: wrap;
@@ -251,6 +248,8 @@ tr:hover {
 .news-item p {
     font-size: 1rem;
     color: #666;
+    text-align: justify;
+    margin: 0 20px; /* Отступы слева и справа */
 }
 ul {
     list-style-type: none;
@@ -364,6 +363,11 @@ a {
     width: 30%;
     margin: 10px;
     border-radius: 5px;
+}
+.pest-description p {
+    text-align: justify;
+    margin: 0 20px; /* Отступы слева и справа */
+   
 }
 
 .pest-description .image-gallery {
