@@ -266,7 +266,7 @@ li {
 .culture-item {
     cursor: pointer;
     padding: 10px;
-    background-color: #f0f0f0;
+   background-color: #f0f0f0;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     text-align: center;
@@ -279,22 +279,24 @@ li {
 
 /* Скрытый список вредителей и болезней */
 .pest-list {
-    display: none;/* Скрыть список по умолчанию */
+    display: none; /* По умолчанию скрыт */
+    list-style: none;
+    padding: 0;
     margin-top: 10px;
-    padding-left: 20px;
+    text-align: center; /* Центрирование текста */
+    justify-content: center;
 }
 
-.pest-list li {
-    list-style: none; /* Убираем маркеры списка, если нужно */
-}
 
-/* Стили для вредителей и болезней */
+/* Стили для вредителей и болезней pests.html */
 .pest-item {
     padding: 5px;
     background-color: #e0e0e0;
     border-radius: 3px;
     margin-bottom: 5px;
     transition: background-color 0.3s ease;
+    text-align: center;
+    justify-content: center;
 }
 .pest-item a {
     text-decoration: none;
@@ -303,6 +305,7 @@ li {
     display: inline-block; /* Увеличение кликабельной области */
     width: 100%; /* Кнопка занимает всю ширину */
     text-align: center;
+    justify-content: center;
 }
 
 .pest-item:hover {
@@ -337,6 +340,7 @@ a {
     height: auto;
     border-radius: 5px;
     margin-bottom: 10px;
+
 }
 
 .pest-description {
@@ -374,6 +378,29 @@ a {
     height: 200px; /* Определённая высота */
     object-fit: cover; /* Изображения сохраняют пропорции и обрезаются по необходимости */
     border-radius: 5px;
+}
+.culture-button {
+    position: relative;
+    display: inline-block;
+    width: 200px;  /* Подберите нужную ширину */
+    height: 50px;  /* Подберите нужную высоту */
+}
+
+.culture-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.culture-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;  /* Измените цвет, если нужно */
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black; /* Чтобы текст был виден на светлом фоне */
 }
 /* Кнопка для закрытия */
 .close-btn {

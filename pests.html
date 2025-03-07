@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вредители и Болезни</title>
     <link rel="stylesheet" href="style.css">
-    <script src="js/loadData.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+     <!-- <script type="module" src="path/to/your-auth-script.js"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="images/icon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/icon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/icon.png">
@@ -32,29 +36,46 @@
             </nav>
         </header>
         <main>
-            <h4>Выберите культуру из списка, для ознакомления с описанием вредителей и болезней</h4>
+            <h3>Выберите культуру из списка, для ознакомления с описанием вредителей и болезней</h3>
             <div id="content">
-                
                 <div class="culture">
-                    <div class="culture-item">Виноград</div>
-                    <ul class="pest-list" style="display: none;">
-                        <li class="pest-item"><a href="vitis/daunator.html">Вредители</a></li>
-                        <li class="pest-item"><a href="vitis/bolii.html">Болезни</a></li>
-                    </ul>
-                </div>
-        
-                <div class="culture">
-                    <div class="culture-item">Пшеница</div>
+                    <div class="culture-item">Зерновые колосовые</div>
                     <ul class="pest-list" style="display: none;">
                         <li class="pest-item"><a href="griu/daunator.html">Вредители</a></li>
                         <li class="pest-item"><a href="griu/bolii.html">Болезни</a></li>
                     </ul>
                 </div>
                 <div class="culture">
+                    <div class="culture-item">кукуруза</div>
+                    <ul class="pest-list" style="display: none;">
+                        <li class="pest-item"><a href="porumb/daunator.html">Вредители</a></li>
+                        <li class="pest-item"><a href="porumb/bolii.html">Болезни</a></li>
+                    </ul>
+                </div>
+                <!--<div class="culture">
+                    <div class="culture-item">
+                        <div class="culture-button">
+                            <img src="images/porumb.png" alt="Кукуруза" class="culture-icon">
+                            <span class="culture-text">Кукуруза</span>
+                        </div>
+                    </div>
+                    <ul class="pest-list" style="display: none;">
+                        <li class="pest-item"><a href="porumb/daunator.html">Вредители</a></li>
+                        <li class="pest-item"><a href="porumb/bolii.html">Болезни</a></li>
+                    </ul>
+                </div>-->
+                <div class="culture">
                     <div class="culture-item">Рапс</div>
                     <ul class="pest-list" style="display: none;">
                         <li class="pest-item"><a href="rapita/daunator.html">Вредители</a></li>
                         <li class="pest-item"><a href="rapita/bolii.html">Болезни</a></li>
+                    </ul>
+                </div>
+                <div class="culture">
+                    <div class="culture-item">Виноград</div>
+                    <ul class="pest-list" style="display: none;">
+                        <li class="pest-item"><a href="vitis/daunator.html">Вредители</a></li>
+                        <li class="pest-item"><a href="vitis/bolii.html">Болезни</a></li>
                     </ul>
                 </div>
             </div>
