@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Массив рекомендаций
     const recommendations = {
-        "Апрель-1": "Рекомендуется обработка против клещей и сорняков.",
-        "Апрель-2": "Проведите обработку от мильдью.",
-        "Апрель-3": "Подготовьте виноград к цветению.",
-        "Ноябрь-3": "Внесите комплексные удобрения для улучшения агрофона. <a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c139d2c064e00011cd88f_%D0%A1%D1%83%D0%BB%D1%8C%D1%84%D0%BE%D0%B0%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a>  <a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c13eca5e9fa00010bf865_%D0%90%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a> ",
-        "Декабрь-3": "Внесите комплексные удобрения для улучшения агрофона. <a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c139d2c064e00011cd88f_%D0%A1%D1%83%D0%BB%D1%8C%D1%84%D0%BE%D0%B0%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a>  <a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c13eca5e9fa00010bf865_%D0%90%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a> ",
+        "Март-2": "Установите  по краям поля 2-4 ловушки на высоте растений, заполните 1 л воды с каплей моющего средства. Проверяйте ежедневно во второй половине дня.",
+        "Апрель-2": "",
+        "Апрель-3": "",
+        "Ноябрь-3": " <a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c139d2c064e00011cd88f_%D0%A1%D1%83%D0%BB%D1%8C%D1%84%D0%BE%D0%B0%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a>  <a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c13eca5e9fa00010bf865_%D0%90%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a> ",
+        "Декабрь-3": " <a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c139d2c064e00011cd88f_%D0%A1%D1%83%D0%BB%D1%8C%D1%84%D0%BE%D0%B0%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a>  <a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c13eca5e9fa00010bf865_%D0%90%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a> ",
     };
 
     // Получение текущей даты

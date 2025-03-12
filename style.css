@@ -118,7 +118,7 @@ tr:hover {
 }
 
 .button {
-    background-color: #4CAF50;
+    background-color: #b0eeb2;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -743,13 +743,13 @@ a {
 }
 
 .phase img {
-    width: 25px; /* Reduced image size */
-    height: 25px;
+    width: 40px; 
+    height: 40px;
     margin-bottom: 1px; /* Minimal spacing below image */
 }
 
 .phase p {
-    font-size: 6px; /* Smaller text */
+    font-size: 12px; /* Smaller text */
     margin: 0; /* Removed spacing */
 }
 
@@ -811,39 +811,7 @@ a {
     height: 40px;
 }
 
-/* Фон для удобрений */
-.fertilizer-background {
-    background-color: #f7f7f7;
-    padding: 10px 0;
-    margin-top: 20px;
-    position: relative;
-}
 
-/* Контейнер удобрений */
-.fertilizer-phases {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 10px;
-}
-
-/* Стили для каждого удобрения */
-.fertilizer {
-    text-align: center;
-    flex-grow: 1;
-    margin: 0 5px;
-}
-
-.fertilizer img {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 5px;
-}
-
-.fertilizer p {
-    font-size: 10px;
-    margin: 0;
-    color: #555;
-}
 /* Стили для футера */
 footer {
     text-align: center;
@@ -913,8 +881,8 @@ footer {
     }
 
     .action-items img, .phase img {
-        width: 5px; /* Smallest images */
-        height: 5px;
+        width: 20px; /* Smallest images */
+        height: 20px;
     }
 
     .action-item h4, .phase p {
