@@ -7,6 +7,7 @@ body {
     background-color: #f4f4f9;
 }
 
+
 /* Стили для заголовка */
 header {
     background-color: #aeebaeea;
@@ -57,6 +58,15 @@ h2 {
 
 h1 {
     font-size: 24px;
+}
+/* Стили для футера */
+footer {
+    text-align: center;
+    background-color: #7acc7e;
+    color: white;
+    padding: 10px 0; 
+    bottom: 0;
+    width: 100%;
 }
 
 /* Стили для таблицы */
@@ -809,18 +819,6 @@ a {
     margin: 20px 0;
     position: relative;
     height: 40px;
-}
-
-
-/* Стили для футера */
-footer {
-    text-align: center;
-    background-color: #7acc7e;
-    color: white;
-    padding: 10px 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }
 /* Фон для ПК */
 @media (min-width: 769px) {

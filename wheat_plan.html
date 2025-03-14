@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>План мероприятий по защите зерновых колосовых</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <div class="content-wrapper">
+        <header>
+            <h1>План мероприятий по защите рапса</h1>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">Вернуться к списку культур</a></li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <h2></h2>
+            <div id="planModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" onclick="closeModal()">&times;</span>
+                    <div id="planDetails">
+                        <!-- План  -->
+                    </div>
+                </div>
+            </div>
+            <!-- Шкала периода обработки -->
+            <div class="timeline">
+                <div class="timeline-labels">
+                    <span>Март</span>
+                    <span>Апрель</span>
+                    <span>Май</span>
+                    <span>Июнь</span>
+                    <span>Июль</span>
+                    <span>Август</span>
+                    <span>Сентябрь</span>
+                    <span>Октябрь</span>
+                    <span>Ноябрь</span> 
+                </div>
+            </div>
+            <!-- Интерактивная линия декад -->
+            <div class="interactive-line">
+                <div class="decade" data-month="Март" data-decade="1">1</div>
+                <div class="decade" data-month="Март" data-decade="2">2</div>
+                <div class="decade" data-month="Март" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Апрель" data-decade="1">1</div>
+                <div class="decade" data-month="Апрель" data-decade="2">2</div>
+                <div class="decade" data-month="Апрель" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Май" data-decade="1">1</div>
+                <div class="decade" data-month="Май" data-decade="2">2</div>
+                <div class="decade" data-month="Май" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Июнь" data-decade="1">1</div>
+                <div class="decade" data-month="Июнь" data-decade="2">2</div>
+                <div class="decade" data-month="Июнь" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Июль" data-decade="1">1</div>
+                <div class="decade" data-month="Июль" data-decade="2">2</div>
+                <div class="decade" data-month="Июль" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Август" data-decade="1">1</div>
+                <div class="decade" data-month="Август" data-decade="2">2</div>
+                <div class="decade" data-month="Август" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Сентябрь" data-decade="1">1</div>
+                <div class="decade" data-month="Сентябрь" data-decade="2">2</div>
+                <div class="decade" data-month="Сентябрь" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Октябрь" data-decade="1">1</div>
+                <div class="decade" data-month="Октябрь" data-decade="2">2</div>
+                <div class="decade" data-month="Октябрь" data-decade="3">3</div>
+                <div class="decade month-divider" data-month="Ноябрь" data-decade="1">1</div>
+                <div class="decade" data-month="Ноябрь" data-decade="2">2</div>
+                <div class="decade" data-month="Ноябрь" data-decade="3">3</div>
+                
+            </div>
+                <div id="tooltip" class="tooltip"></div>
+
+            <!-- Кликабельные элементы -->
+            <div class="action-items">
+                <div class="action-item">
+                    <img src="images/ceuthorhynchus.jpg" alt="стеблевой долгоносик">
+                    <a href=""><h4>стеблевой долгоносик</h4></a>
+                </div>
+                <div class="action-item">
+                    <img src="images/ceuthorhynchus_assim.jpg" alt="семенной долгоносик">
+                    <a href=""><h4>семенной долгоносик</h4></a>
+                </div>
+                <div class="action-item">
+                    <img src="images/meligethes.jpg" alt="цветоед">
+                    <a href=""><h4>цветоед</h4></a>
+                </div>
+                <div class="action-item">
+                    <img src="images/sclerotinia.jpg" alt="белая гниль">
+                    <a href=""></a><h4>Белая гниль</h4>
+                </div>
+                <div class="action-item">
+                    <img src="images/perenospora_r.jpg" alt="ложная мучнистая роса">
+                    <a href=""><h4>ложная мучнистая роса</h4></a>
+                   
+                </div>
+                <div class="action-item">
+                    <img src="images/alternaria_r3.jpg" alt="альтернариоз">
+                    <a href=""><h4>альтернариоз</h4></a>
+                </div>
+                <div class="action-item">
+                    <h4></h4></a>
+                </div>
+                <div class="action-item">
+                    <h4></h4></a>
+                </div>
+                <div class="action-item">
+                    <h4></h4></a>
+                </div>
+                <div class="action-item">
+                    <img src="images/amathes2.jpg" alt="">
+                    <a href=""><h4>Совки</h4></a>
+                </div>
+                <div class="action-item">
+                    <img src="images/philotreta.jpg" alt="">
+                    <a href=""><h4>блошки</h4></a>
+                </div>
+                <div class="action-item">
+                    <img src="images/athalia1.jpg" alt="">
+                    <h4>пилильщик</h4>
+                </div>
+                
+                
+            </div>
+            
+            <!-- Фазы  -->
+           <div class="phases-background">
+            <div class="phases">
+                <div class="phase">
+                    <img src="images/raps3.jpg" alt="удлинение стебля">
+                    <p>удлинение</br>стебля</p>
+                    <div class="vertical-line"></div>
+                </div>
+                <div class="phase">
+                    <img src="images/raps4.jpg" alt=бутонизация">
+                    <p>бутонизация</p>
+                    <div class="vertical-line"></div>
+                </div>
+                <div class="phase">
+                    <img src="images/raps5.jpg" alt="начало цветения">
+                    <p>начало</br> цветения</p>
+                    <div class="vertical-line"></div>
+                </div>
+                <div class="phase">
+                    <img src="images/raps7.jpg" alt="конец цветения">
+                    <p>конец</br>цветения</p>
+                    <div class="vertical-line"></div>
+                </div>
+                <div class="phase">
+                    <img src="images/raps9.jpg" alt="завершение формирования семян">
+                    <p>завершение</br>формирования семян</p>
+                    <div class="vertical-line"></div>
+                </div>
+                <div class="phase">
+                    <p></p>
+                    <div class="vertical-line"></div>
+                </div>
+                <div class="phase">
+                    
+                    <p></p>
+                    <div class="vertical-line"></div>
+                </div>
+                <div class="phase">
+                    <img src="images/raps8.jpg" alt="посев">
+                    <p>посев</p>
+                    <div class="vertical-line"></div>
+                </div>
+                <div class="phase">
+                    <img src="images/raps1.jpg" alt="всходы">
+                    <p>Всходы</p>
+                </div>
+                <div class="phase">
+                    <img src="images/raps2.jpg" alt="формирование розетки">
+                    <p>формирование розетки</p>
+                </div>
+              
+            </div>
+            <div class="horizontal-line"></div>
+        
+        </main>
+        <script src="script_p_raps.js"></script>
+        
+        <footer>
+            <p>&copy; 2025 Plant Protection Portal</p>
+        </footer>
+    </div>
+
+</body>
+</html>
