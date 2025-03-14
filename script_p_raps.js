@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Массив рекомендаций
     const recommendations = {
-        "Март-2": "Установите  по краям поля 2-4 ловушки на высоте растений, заполните 1 л воды с каплей моющего средства. Проверяйте ежедневно во второй половине дня. При выявлении  более 10 долгоносиков в одной ловушке за 3 дня следует провести обработку",
+        "Март-1": "Рекомендовано внесение азотных удобрений",
+        "Март-2": "1)Отмечен массовый выход стеблевых долгоносиков, проведите обработку одним из <a href='https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=0&t=0&c=10608&comp=0&par=24537&search=C%C4%83utare'>инсектицидов</a>. 2) На полях, где культура возвращена раньше 4 лет, для защиты от болезней используйте один из <a href='https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=tebuconazol&t=0&c=10608&comp=0&par=0&search=C%C4%83utare'>фунгицидов</a>. 3)После обработки проверяйте ловушки во второй половине дня до начала цветения на выявление семенного скрытнохоботника. При выявлении более 10 долгоносиков в одной ловушке за 3 дня, в период бутонизации надо будет провести обработку против семенного долгоносика.",
         "Апрель-2": "",
         "Апрель-3": "",
-        "Ноябрь-3": " <a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c139d2c064e00011cd88f_%D0%A1%D1%83%D0%BB%D1%8C%D1%84%D0%BE%D0%B0%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a>  <a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c13eca5e9fa00010bf865_%D0%90%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a> ",
-        "Декабрь-3": " <a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c139d2c064e00011cd88f_%D0%A1%D1%83%D0%BB%D1%8C%D1%84%D0%BE%D0%B0%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a>  <a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c13eca5e9fa00010bf865_%D0%90%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a> ",
+        "Ноябрь-3": "<a href='https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=tebuconazol&t=0&c=10608&comp=0&par=0&search=C%C4%83utare'>Подробнее</a> <a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c13eca5e9fa00010bf865_%D0%90%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a>",
+        "Декабрь-3": "<a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c139d2c064e00011cd88f_%D0%A1%D1%83%D0%BB%D1%8C%D1%84%D0%BE%D0%B0%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a> <a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c13eca5e9fa00010bf865_%D0%90%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a>",
     };
-
     // Получение текущей даты
     const today = new Date();
     const currentDay = today.getDate();
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Добавляем класс для мигания красным
             decade.classList.add('blinking');
 
-            // Добавляем рекомендацию в атрибут data-tooltip
+            // Добавекорневую подкормку ляем рекомендацию в атрибут data-tooltip
             const recommendationKey = `${decadeMonth}-${decadeNumber}`;
             if (recommendations[recommendationKey]) {
                 decade.setAttribute('data-tooltip', recommendations[recommendationKey]);

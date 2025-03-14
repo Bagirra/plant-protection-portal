@@ -815,10 +815,12 @@ a {
 /* Стили для футера */
 footer {
     text-align: center;
-    background-color: #779c79;
+    background-color: #7acc7e;
     color: white;
     padding: 10px 0;
-    margin-top: 40px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 /* Фон для ПК */
 @media (min-width: 769px) {
