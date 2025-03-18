@@ -442,34 +442,21 @@ a {
 /* Шкала периода обработки */
 .timeline {
     position: relative;
-    height: 20px; /* Reduced height for smaller screens */
-    background: linear-gradient(to right, #c6e1c3 0%, #94e797 100%);
+    height: 20px;
+    background: linear-gradient(to right, #c6e1c3, #94e797);
     margin-bottom: 15px;
-    border-radius: 10px; /* Reduced border radius */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+   
 }
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #009f5d;
-    transform: translateY(-50%);
-}
-
 .timeline-labels {
     display: flex;
-    justify-content: space-between;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 0 2px; /* Minimal padding */
-    color: #333;
-    font-weight: bold;
-    font-size: 8px; /* Smaller font size */
+    width: 100%;
+    justify-content: space-evenly; /* Равномерное распределение */
+}
+.timeline-labels span {
+    text-align: center;
 }
 /* Стили для кликабельных элементов */
 .action-items {
@@ -853,12 +840,12 @@ a {
     }
 
     .timeline-labels {
-        font-size: 7px; /* Smaller font */
+        font-size: 10px; /* Smaller font */
     }
 
     .action-items img, .phase img {
-        width: 10px; /* Smaller images */
-        height: 10px;
+        width: 20px; /* Smaller images */
+        height: 20px;
     }
 
     .action-item h4, .phase p {
@@ -877,7 +864,7 @@ a {
     }
 
     .timeline-labels {
-        font-size: 6px; /* Smallest font size */
+        font-size: 8px; /* Smallest font size */
     }
 
     .action-items img, .phase img {
@@ -973,7 +960,7 @@ a {
 }
 
 
-/* Адаптация для планшетов */
+/* Адаптация для планшетов таблица */
 @media (max-width: 768px) {
     table {
         font-size: 12px; /* Уменьшаем размер шрифта для таблицы */
