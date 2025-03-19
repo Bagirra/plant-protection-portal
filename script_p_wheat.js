@@ -6,13 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Массив рекомендаций
     const recommendations = {
-        "Март-1": "Рекомендовано внесение азотных удобрений",
-        "Март-2": "1)Отмечен массовый выход стеблевых долгоносиков, проведите обработку одним из <a href='https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=0&t=0&c=10608&comp=0&par=24537&search=C%C4%83utare'> системных инсектицидов</a>. 2) На полях, где культура возвращена раньше 4 лет, для защиты от болезней используйте один из <a href='https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=tebuconazol&t=0&c=10608&comp=0&par=0&search=C%C4%83utare'>фунгицидов</a>. 3)После обработки проверяйте ловушки во второй половине дня до начала цветения на выявление семенного скрытнохоботника. При выявлении более 10 долгоносиков в одной ловушке за 3 дня, в период бутонизации надо будет провести обработку против семенного долгоносика.",
-        "Апрель-2": "",
-        "Апрель-3": "",
-        "Ноябрь-3": "<a href=''>Подробнее</a> <a href=''>Подробнее</a>",
-        "Декабрь-3": "<a href=''>Подробнее</a> <a href=''>Подробнее</a>",
+        "Март-1": "На озимой пшенице по стерневым предшественникам в фазу кущение возобновили питание личинки хлебной жужелицы. На слабо раскустившихся и поздно взошедших посевах, при обнаружении более 2х личинок на 1м² следует провести обработку одним из<a href='https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=0&t=0&c=10704&comp=0&par=18166&search=C%C4%83utare'> инсектицидов.</a> ",
+        "Апрель-1": "Рекомендуется обработка против клещей и сорняков.",
+        "Апрель-2": "Проведите обработку от мильдью.",
+        "Апрель-3": "Подготовьте виноград к цветению.",
+        "Ноябрь-3": "Внесите комплексные удобрения для улучшения агрофона. <a href='https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=0&t=0&c=10704&comp=0&par=18166&search=C%C4%83utare'>Подробнее</a>  <a href='https://fenix-agro.md/5a9829e53c7b7d0001a3fa3b/5a9c13eca5e9fa00010bf865_%D0%90%D0%BC%D0%BC%D0%BE%D1%84%D0%BE%D1%81.pdf'>Подробнее</a> ",
+        "Сентябрь-2": "Предпосевная обработка семян <a href='https://www.pesticide.md/registru-cautare/?name_registr=0&name_reg=0&t=0&c=10568&comp=0&par=18166&search=C%C4%83utare'>одним из инсектицидов</a> ",
     };
+
     // Получение текущей даты
     const today = new Date();
     const currentDay = today.getDate();
@@ -33,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Добавляем класс для мигания красным
             decade.classList.add('blinking');
 
-            // Добавекорневую подкормку ляем рекомендацию в атрибут data-tooltip
+            // Добавляем рекомендацию в атрибут data-tooltip
             const recommendationKey = `${decadeMonth}-${decadeNumber}`;
             if (recommendations[recommendationKey]) {
                 decade.setAttribute('data-tooltip', recommendations[recommendationKey]);
@@ -60,6 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
         tooltipVisible = true;
     }
 
+    // Функция скрытия подсказки
+    function hideTooltip(event) {
+        if (!tooltip.contains(event.relatedTarget)) {
+            tooltip.style.display = 'none';
+            tooltipVisible = false;
+        }
+    }
+
     function updateDecadeStyles() {
         document.querySelectorAll(".decade").forEach(decade => {
             const key = decade.dataset.decade; // Получаем ключ для поиска рекомендаций
@@ -79,14 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Вызываем функцию после загрузки страницы
     document.addEventListener("DOMContentLoaded", updateDecadeStyles);
-    
-    // Функция скрытия подсказки
-    function hideTooltip(event) {
-        if (!tooltip.contains(event.relatedTarget)) {
-            tooltip.style.display = 'none';
-            tooltipVisible = false;
-        }
-    }
 
     // Обработчики событий для декад
     decades.forEach(decade => {
@@ -118,35 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tooltip.addEventListener('mouseout', hideTooltip);
 });
 
-
-// Навигация для выбора культуры
-function navigateToPlan(crop) {
-    if (crop === "grape") {
-        window.location.href = "plan.html";
-    } else if (crop === "raps") {
-        window.location.href = "raps_plan.html";    
-    } else if (crop === "wheat") {
-        window.location.href = "wheat_plan.html";
-    } else if (crop === "corn") {
-        window.location.href = "corn_plan.html";
-    }
-}
-
 // Инициализация данных при загрузке страницы Plan
-window.onload = async function() {
-    try {
-        // Получаем и обновляем текущие данные о погоде
-        const currentWeather = await fetchCurrentWeather();
-        updateCurrentWeather(currentWeather);
-
-        // Получаем и обновляем прогноз погоды
-        const weatherForecast = await fetchWeatherForecast();
-        updateWeatherForecast(weatherForecast);
-    } catch (error) {
-        console.error('Ошибка при получении данных:', error);
-    }
-};
-
 
 function togglePlan(planId) {
     const planContent = document.getElementById(planId);

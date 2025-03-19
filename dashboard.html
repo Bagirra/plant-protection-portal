@@ -13,18 +13,29 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
+
 <body>
     <header>
-        <h1>Добро пожаловать в личный кабинет</h1>
+        <h2>
+            <img src="images/icon.png" alt="Эмблема" style="width: 40px; height: 40px; vertical-align: middle; margin-right: 10px;">
+            Портал Защиты Растений
+        </h2>
+        <!-- Кнопка гамбургер-меню -->
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <nav>
-            <ul>
+            <ul id="navMenu" class="nav-links">
                 <li><a href="index.html">Главная</a></li>
+                <li><a href="pests.html">Вредители и Болезни</a></li>
                 <li><a href="meteo.html">Данные метеостанции</a></li>
-                <li><a href="news.html">Новости</a></li>
             </ul>
         </nav>
+        <h3>Личный кабинет</h3>
     </header>
-
+    
     <main>
         <h2>Выберите культуру для просмотра плана мероприятий</h2>
         <form id="cropSelectionForm">
@@ -34,13 +45,13 @@
                 <option value="grape">Виноград</option>
                 <option value="raps">Рапс</option>
                 <option value="wheat">Пшеница</option>
-                <option value="corn">Кукуруза</option>
+                <!--<option value="corn">Кукуруза</option>
+                <option value="corn">Подсолнечник</option>-->
             </select>
         </form>
         
     </main>
     <main>
-        
         <div>
            
             <label for="startDate">Начальная дата:</label>
@@ -79,13 +90,13 @@
         </div>
     </div>
     
-
     <footer>
         <p>&copy; 2024 Plant Protection Portal</p>
     </footer>
     <script src="script_p.js"></script> 
     <script src="script.js"></script> 
     <script src="script_set.js"></script> 
+    <script src="swipe-navigation.js"></script>
 </body>
 </html>
 

@@ -7,7 +7,6 @@ body {
     background-color: #f4f4f9;
 }
 
-
 /* Стили для заголовка */
 header {
     background-color: #aeebaeea;
@@ -35,6 +34,8 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold; /* Полужирный */
+    text-shadow: 2px 2px 4px black; /* Чёрная тень */
 }
 
 /* Основная секция */
@@ -58,6 +59,11 @@ h2 {
 
 h1 {
     font-size: 24px;
+}
+h3 {
+    
+    font-weight: bold; /* Полужирный */
+    text-shadow: 2px 2px 4px black; /* Чёрная тень */
 }
 /* Стили для футера */
 footer {
@@ -145,6 +151,7 @@ tr:hover {
     align-items: center;
     margin-bottom: 20px;
     
+    
 }
 
 .weather-icon-container {
@@ -160,13 +167,16 @@ tr:hover {
     margin: 0;
     font-size: 18px;
     line-height: 1.5;
-    color:#07882e;
+    font-weight: bold; /* Полужирный */
+    color: white; /* Белый цвет */
+    text-shadow: 2px 2px 4px black; /* Чёрная тень */
 }
 
 .weather-info #temperature {
     font-size: 36px;
     font-weight: bold;
     color: #d9873a;
+    text-shadow: 2px 2px 4px rgba(228, 159, 132, 0.986); /*тень */
 }
 
 /* Секция прогноза index.html */
@@ -537,7 +547,6 @@ a {
     font-weight: bold;
     border-radius: 5px;
 }
-
 /* Мигающий красный для декады с уведомлением */
 .blinking {
     animation: blink 1s infinite;
@@ -554,12 +563,13 @@ a {
 }
 
 .menu-toggle span {
-    background-color: rgb(81, 158, 45);
+    background-color: rgb(212, 214, 209);
     height: 3px;
     width: 30px;
     margin: 4px 0;
     border-radius: 2px;
     transition: 0.3s ease;
+    border: 1px solid rgb(151, 179, 144);
 }
 
 /* Стили для навигации */
