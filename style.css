@@ -35,7 +35,7 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold; /* Полужирный */
-    text-shadow: 2px 2px 4px black; /* Чёрная тень */
+    
 }
 
 /* Основная секция */
@@ -63,7 +63,7 @@ h1 {
 h3 {
     
     font-weight: bold; /* Полужирный */
-    text-shadow: 2px 2px 4px black; /* Чёрная тень */
+    text-shadow: 2px 2px 4px rgb(205, 216, 200); /* Чёрная тень */
 }
 /* Стили для футера */
 footer {
