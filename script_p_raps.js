@@ -21,66 +21,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentMonth = months[currentMonthIndex];
     const currentDecade = Math.ceil(currentDay / 10); // Определяем декаду
 
-    // Обновление состояния декад
+   // Функция обновления стилей декад
+   function updateDecadeStyles() {
     decades.forEach(decade => {
-        const decadeMonth = decade.getAttribute('data-month');
-        const decadeNumber = parseInt(decade.getAttribute('data-decade'), 10);
+        const decadeMonth = decade.dataset.month;
+        const decadeNumber = parseInt(decade.dataset.decade, 10);
+        const key = `${decadeMonth}-${decadeNumber}`;
+        const recommendation = recommendations[key];
 
-        // Проверяем, если текущая декада
+        // Если это текущая декада
         if (decadeMonth === currentMonth && decadeNumber === currentDecade) {
-            decade.classList.add('current-decade'); // Зеленый фон для текущей декады
+            decade.classList.add('current-decade'); // Зеленый фон
+            decade.classList.remove('blinking'); // Очищаем мигание
 
-            // Добавляем класс для мигания красным
-            decade.classList.add('blinking');
-
-            // Добавекорневую подкормку ляем рекомендацию в атрибут data-tooltip
-            const recommendationKey = `${decadeMonth}-${decadeNumber}`;
-            if (recommendations[recommendationKey]) {
-                decade.setAttribute('data-tooltip', recommendations[recommendationKey]);
+            if (recommendation) {
+                decade.classList.add('blinking'); // Мигание, если есть рекомендация
+                decade.setAttribute('data-tooltip', recommendation);
             }
+        } else {
+            // Для остальных декад убираем все классы
+            decade.classList.remove('current-decade', 'blinking');
         }
     });
+}
 
-    // Функция отображения подсказки
+    // Обработчики событий для подсказок
     function showTooltip(event, element) {
         const tooltipText = element.getAttribute('data-tooltip');
         const month = element.getAttribute('data-month');
         const decadeNumber = element.getAttribute('data-decade');
 
-        // Если подсказка для текущей декады
-        if (tooltipText) {
-            tooltip.innerHTML = tooltipText; // Показываем текст подсказки
-        } else {
-            tooltip.innerHTML = `${month}, Декада ${decadeNumber}`; // Показываем только месяц и номер декады
-        }
-
+        tooltip.innerHTML = tooltipText ? tooltipText : `${month}, Декада ${decadeNumber}`;
         tooltip.style.display = 'block';
         tooltip.style.left = `${event.pageX + 10}px`;
         tooltip.style.top = `${event.pageY + 10}px`;
         tooltipVisible = true;
     }
 
-    function updateDecadeStyles() {
-        document.querySelectorAll(".decade").forEach(decade => {
-            const key = decade.dataset.decade; // Получаем ключ для поиска рекомендаций
-            const recommendation = recommendations[key]; // Получаем рекомендацию
-    
-            if (recommendation && recommendation.trim() !== "") {
-                // Если есть рекомендация — мигаем красным
-                decade.classList.add("blinking");
-                decade.classList.remove("current-decade");
-            } else {
-                // Если нет рекомендации — зелёный цвет
-                decade.classList.add("current-decade");
-                decade.classList.remove("blinking");
-            }
-        });
-    }
-    
-    // Вызываем функцию после загрузки страницы
-    document.addEventListener("DOMContentLoaded", updateDecadeStyles);
-    
-    // Функция скрытия подсказки
     function hideTooltip(event) {
         if (!tooltip.contains(event.relatedTarget)) {
             tooltip.style.display = 'none';
@@ -88,22 +65,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Обработчики событий для декад
+    // Применяем обновление стилей декад
+    updateDecadeStyles();
+
+    // Добавляем обработчики событий
     decades.forEach(decade => {
         decade.addEventListener('mouseover', (event) => showTooltip(event, event.target));
         decade.addEventListener('mouseout', hideTooltip);
-
-        // Обработка клика по декаде
         decade.addEventListener('click', (event) => {
             const element = event.target;
 
-            // Убираем мигание с декады после клика
+            // Убираем мигание после клика
             element.classList.remove('blinking');
-
-            // Оставляем зеленый цвет для текущей декады
             element.classList.add('current-decade');
-
-            // Отображаем уведомление
             showTooltip(event, element);
         });
     });
@@ -114,39 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
         tooltipVisible = true;
     });
 
-    // Скрытие подсказки при уходе курсора за её пределы
     tooltip.addEventListener('mouseout', hideTooltip);
 });
-
-
-// Навигация для выбора культуры
-function navigateToPlan(crop) {
-    if (crop === "grape") {
-        window.location.href = "plan.html";
-    } else if (crop === "raps") {
-        window.location.href = "raps_plan.html";    
-    } else if (crop === "wheat") {
-        window.location.href = "wheat_plan.html";
-    } else if (crop === "corn") {
-        window.location.href = "corn_plan.html";
-    }
-}
-
-// Инициализация данных при загрузке страницы Plan
-window.onload = async function() {
-    try {
-        // Получаем и обновляем текущие данные о погоде
-        const currentWeather = await fetchCurrentWeather();
-        updateCurrentWeather(currentWeather);
-
-        // Получаем и обновляем прогноз погоды
-        const weatherForecast = await fetchWeatherForecast();
-        updateWeatherForecast(weatherForecast);
-    } catch (error) {
-        console.error('Ошибка при получении данных:', error);
-    }
-};
-
 
 function togglePlan(planId) {
     const planContent = document.getElementById(planId);

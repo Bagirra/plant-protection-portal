@@ -547,7 +547,7 @@ a {
     font-weight: bold;
     border-radius: 5px;
 }
-/* Мигающий красный для декады с уведомлением */
+/* Мигающий красный для декады с рекомендациями */
 .blinking {
     animation: blink 1s infinite;
 }
